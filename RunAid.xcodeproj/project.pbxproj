@@ -17,6 +17,9 @@
 		79B132CE203DEA6A00250A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CD203DEA6A00250A67 /* Assets.xcassets */; };
 		79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */; };
 		79B132DD203DF34E00250A67 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 79B132DC203DF34E00250A67 /* awsconfiguration.json */; };
+		79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280822045CF4200B44469 /* UIViewControllerExtension.swift */; };
+		79D280872045DB0400B44469 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280862045DB0400B44469 /* RoundedButton.swift */; };
+		79D280892045E60700B44469 /* ColorBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280882045E60700B44469 /* ColorBorderTextField.swift */; };
 		79FA8113204063B30063099F /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8112204063B30063099F /* UserRegistrationViewController.swift */; };
 		79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8114204072820063099F /* AlertCreatorExtension.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +37,9 @@
 		79B132D0203DEA6A00250A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B132D2203DEA6A00250A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B132DC203DF34E00250A67 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		79D280822045CF4200B44469 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		79D280862045DB0400B44469 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		79D280882045E60700B44469 /* ColorBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBorderTextField.swift; sourceTree = "<group>"; };
 		79FA8112204063B30063099F /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
 		79FA8114204072820063099F /* AlertCreatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreatorExtension.swift; sourceTree = "<group>"; };
 		ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunAid/Pods-RunAid.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +71,9 @@
 		791C46A92044BF4900A47402 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				79D280862045DB0400B44469 /* RoundedButton.swift */,
 				79FA8114204072820063099F /* AlertCreatorExtension.swift */,
+				79D280882045E60700B44469 /* ColorBorderTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -100,17 +108,34 @@
 		79B132C3203DEA6A00250A67 /* RunAid */ = {
 			isa = PBXGroup;
 			children = (
+				792C3825203EEDA400EF6D8C /* Authentication */,
+				79D280842045CFAF00B44469 /* Extensions */,
+				79D280852045CFC500B44469 /* Storyboards */,
 				791C46A92044BF4900A47402 /* Utils */,
 				791C46A82044BEAB00A47402 /* Views */,
-				792C3825203EEDA400EF6D8C /* Authentication */,
 				79B132C4203DEA6A00250A67 /* AppDelegate.swift */,
-				79B132CA203DEA6A00250A67 /* Main.storyboard */,
 				79B132CD203DEA6A00250A67 /* Assets.xcassets */,
-				79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */,
 				79B132D2203DEA6A00250A67 /* Info.plist */,
 				79B132DC203DF34E00250A67 /* awsconfiguration.json */,
 			);
 			path = RunAid;
+			sourceTree = "<group>";
+		};
+		79D280842045CFAF00B44469 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79D280822045CF4200B44469 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		79D280852045CFC500B44469 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */,
+				79B132CA203DEA6A00250A67 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C633F1E5A885D1A26DA87E63 /* Pods */ = {
@@ -272,6 +297,9 @@
 				79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */,
 				79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */,
 				79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */,
+				79D280872045DB0400B44469 /* RoundedButton.swift in Sources */,
+				79D280892045E60700B44469 /* ColorBorderTextField.swift in Sources */,
+				79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */,
 				79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */,
 				791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */,
 				792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */,

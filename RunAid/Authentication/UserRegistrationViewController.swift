@@ -24,6 +24,7 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenBackgroundTouched()
         
         //sets Create Account button to disabled and adds inputDidChange action to each text field
         self.CreateAccountBtn.isEnabled = false
@@ -49,13 +50,7 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
                     self.present(alertView, animated: true)
                 }
             } else {
-                //user sign up successful
-                
-                //self.user = response.result!.user
-                
-                //let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.UsernameTxtField!.text!, password: self.PasswordTxtField!.text! )
-                //self.passwordAuthenticationCompletion?.set(result: authDetails)
-                
+                //user sign up successful - close current view controller - navigate back to Login View Controller
                 DispatchQueue.main.async {
                     self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
@@ -77,16 +72,14 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
     //if any of the text field are empty or if the entered password doesn't match the confirm passowrd text then CreateAccount button is disabled
     //otherwise button is clickable
     @objc func inputDidChange(_ sender:AnyObject) {
-        if (self.UsernameTxtField?.text == nil || self.EmailAddrTxtField?.text == nil || self.PhoneNumberTxtField?.text == nil || self.PasswordTxtField?.text == nil || self.ConfirmPasswordTxtField?.text == nil) {
-            self.CreateAccountBtn?.isEnabled = false
-        } else if(self.PasswordTxtField?.text != self.ConfirmPasswordTxtField?.text){
-            self.CreateAccountBtn?.isEnabled = false
-        } else {
+        if (self.UsernameTxtField?.text != nil && self.EmailAddrTxtField?.text != nil && self.PhoneNumberTxtField?.text != nil && self.PasswordTxtField?.text != nil && self.ConfirmPasswordTxtField?.text != nil && self.PasswordTxtField?.text == self.ConfirmPasswordTxtField?.text) {
             self.CreateAccountBtn?.isEnabled = true
+        } else {
+            self.CreateAccountBtn?.isEnabled = false
         }
     }
     
-    //Called by AWS -
+    //overriden getDetails method called by AWS
     public func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
         self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
         DispatchQueue.main.async {
@@ -96,15 +89,11 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
         }
     }
     
+    //overridden method called by AWS should user registration fail
     public func didCompleteStepWithError(_ error: Error?) {
         DispatchQueue.main.async {
             if let error = error as NSError? {
-                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                        message: error.userInfo["message"] as? String,
-                                                        preferredStyle: .alert)
-                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-                alertController.addAction(retryAction)
-                
+                let alertController = self.CreateAlertWithActionButton(errorTitle: (error.userInfo["__type"] as? String)!, errorMessage: (error.userInfo["message"] as? String)!)
                 self.present(alertController, animated: true, completion:  nil)
             } else {
                 self.dismiss(animated: true, completion: {
@@ -114,6 +103,13 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
             }
         }
     }
+    
+    @IBAction func crossBtn_pressed(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
 }
 
@@ -135,5 +131,23 @@ extension UserRegistrationViewController: UITextFieldDelegate{
         }
         return true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: false)
+    }
+    
+    func moveTextField(edittedTextField: UITextField, distanceToMove: Int, upwards: Bool){
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(0.3)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? -distanceToMove : distanceToMove))
+        UIView.commitAnimations()
+    }
 }
+
 

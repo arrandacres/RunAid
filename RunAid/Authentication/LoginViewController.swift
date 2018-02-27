@@ -12,8 +12,6 @@ import AWSCognitoIdentityProvider
 
 class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentication {
     
-    
-    
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var usernameTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -24,6 +22,7 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenBackgroundTouched()
         
         textFields.append(usernameTxtField)
         textFields.append(passwordTxtField)
@@ -40,6 +39,7 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
         }
     }
     
+    //
     @objc private func textDidChange(_ notification: Notification) {
         var formIsValid = true
         
@@ -84,12 +84,7 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
     public func didCompleteStepWithError(_ error: Error?) {
         DispatchQueue.main.async {
             if let error = error as NSError? {
-                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                        message: error.userInfo["message"] as? String,
-                                                        preferredStyle: .alert)
-                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-                alertController.addAction(retryAction)
-                
+                let alertController = self.CreateAlertWithActionButton(errorTitle: (error.userInfo["__type"] as? String)!, errorMessage: (error.userInfo["message"] as? String)!)
                 self.present(alertController, animated: true, completion:  nil)
             } else {
                 self.dismiss(animated: true, completion: {
@@ -113,6 +108,23 @@ extension LoginViewController: UITextFieldDelegate{
         default: passwordTxtField.resignFirstResponder()
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: false)
+    }
+    
+    func moveTextField(edittedTextField: UITextField, distanceToMove: Int, upwards: Bool){
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(0.3)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? -distanceToMove : distanceToMove))
+        UIView.commitAnimations()
     }
 }
 
