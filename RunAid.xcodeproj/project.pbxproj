@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CA20656D827DF8DFBC73F22 /* Pods_RunAid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */; };
+		791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791C46A62044B7B200A47402 /* HomeViewController.swift */; };
+		792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C3823203EED0E00EF6D8C /* LoginViewController.swift */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
-		79B132C7203DEA6A00250A67 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* FirstViewController.swift */; };
-		79B132C9203DEA6A00250A67 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SecondViewController.swift */; };
+		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
+		79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SettingsViewController.swift */; };
 		79B132CC203DEA6A00250A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CA203DEA6A00250A67 /* Main.storyboard */; };
 		79B132CE203DEA6A00250A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CD203DEA6A00250A67 /* Assets.xcassets */; };
 		79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */; };
+		79B132DD203DF34E00250A67 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 79B132DC203DF34E00250A67 /* awsconfiguration.json */; };
+		79FA8113204063B30063099F /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8112204063B30063099F /* UserRegistrationViewController.swift */; };
+		79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8114204072820063099F /* AlertCreatorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		049FAF4354C0D86EE9B17FB0 /* Pods-RunAid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAid.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunAid/Pods-RunAid.release.xcconfig"; sourceTree = "<group>"; };
+		791C46A62044B7B200A47402 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		792C3823203EED0E00EF6D8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79B132C6203DEA6A00250A67 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		79B132C8203DEA6A00250A67 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		79B132C6203DEA6A00250A67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		79B132C8203DEA6A00250A67 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		79B132CB203DEA6A00250A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79B132CD203DEA6A00250A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B132D0203DEA6A00250A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B132D2203DEA6A00250A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79B132DC203DF34E00250A67 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		79FA8112204063B30063099F /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
+		79FA8114204072820063099F /* AlertCreatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreatorExtension.swift; sourceTree = "<group>"; };
+		ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunAid/Pods-RunAid.debug.xcconfig"; sourceTree = "<group>"; };
+		F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunAid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA20656D827DF8DFBC73F22 /* Pods_RunAid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		791C46A82044BEAB00A47402 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79B132C6203DEA6A00250A67 /* ProfileViewController.swift */,
+				79B132C8203DEA6A00250A67 /* SettingsViewController.swift */,
+				791C46A62044B7B200A47402 /* HomeViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		791C46A92044BF4900A47402 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				79FA8114204072820063099F /* AlertCreatorExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		792C3825203EEDA400EF6D8C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				792C3823203EED0E00EF6D8C /* LoginViewController.swift */,
+				79FA8112204063B30063099F /* UserRegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		79B132B8203DEA6A00250A67 = {
 			isa = PBXGroup;
 			children = (
 				79B132C3203DEA6A00250A67 /* RunAid */,
 				79B132C2203DEA6A00250A67 /* Products */,
+				C633F1E5A885D1A26DA87E63 /* Pods */,
+				FB2A048D8FDCC55DD55286F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +100,34 @@
 		79B132C3203DEA6A00250A67 /* RunAid */ = {
 			isa = PBXGroup;
 			children = (
+				791C46A92044BF4900A47402 /* Utils */,
+				791C46A82044BEAB00A47402 /* Views */,
+				792C3825203EEDA400EF6D8C /* Authentication */,
 				79B132C4203DEA6A00250A67 /* AppDelegate.swift */,
-				79B132C6203DEA6A00250A67 /* FirstViewController.swift */,
-				79B132C8203DEA6A00250A67 /* SecondViewController.swift */,
 				79B132CA203DEA6A00250A67 /* Main.storyboard */,
 				79B132CD203DEA6A00250A67 /* Assets.xcassets */,
 				79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */,
 				79B132D2203DEA6A00250A67 /* Info.plist */,
+				79B132DC203DF34E00250A67 /* awsconfiguration.json */,
 			);
 			path = RunAid;
+			sourceTree = "<group>";
+		};
+		C633F1E5A885D1A26DA87E63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */,
+				049FAF4354C0D86EE9B17FB0 /* Pods-RunAid.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB2A048D8FDCC55DD55286F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79B132D5203DEA6A00250A67 /* Build configuration list for PBXNativeTarget "RunAid" */;
 			buildPhases = (
+				71EA6BCC9DDF3B17BC7929D2 /* [CP] Check Pods Manifest.lock */,
 				79B132BD203DEA6A00250A67 /* Sources */,
 				79B132BE203DEA6A00250A67 /* Frameworks */,
 				79B132BF203DEA6A00250A67 /* Resources */,
+				9B44922CD988758EA27661A0 /* [CP] Embed Pods Frameworks */,
+				6CD2365FEAA147A432A83C45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79B132DD203DF34E00250A67 /* awsconfiguration.json in Resources */,
 				79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */,
 				79B132CE203DEA6A00250A67 /* Assets.xcassets in Resources */,
 				79B132CC203DEA6A00250A67 /* Main.storyboard in Resources */,
@@ -134,14 +201,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CD2365FEAA147A432A83C45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RunAid/Pods-RunAid-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71EA6BCC9DDF3B17BC7929D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RunAid-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B44922CD988758EA27661A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RunAid/Pods-RunAid-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthUI/AWSAuthUI.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RunAid/Pods-RunAid-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		79B132BD203DEA6A00250A67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B132C9203DEA6A00250A67 /* SecondViewController.swift in Sources */,
+				79FA8113204063B30063099F /* UserRegistrationViewController.swift in Sources */,
+				79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */,
+				79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */,
 				79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */,
-				79B132C7203DEA6A00250A67 /* FirstViewController.swift in Sources */,
+				79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */,
+				791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */,
+				792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +409,7 @@
 		};
 		79B132D6203DEA6A00250A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +424,7 @@
 		};
 		79B132D7203DEA6A00250A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049FAF4354C0D86EE9B17FB0 /* Pods-RunAid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
