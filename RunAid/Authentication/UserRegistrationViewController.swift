@@ -18,6 +18,7 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
     @IBOutlet weak var PasswordTxtField: UITextField!
     @IBOutlet weak var ConfirmPasswordTxtField: UITextField!
     
+    @IBOutlet weak var ExitBtn: UIButton!
     @IBOutlet weak var CreateAccountBtn: UIButton!
     
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
@@ -145,6 +146,7 @@ extension UserRegistrationViewController: UITextFieldDelegate{
         UIView.beginAnimations("moveTextField", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(0.3)
+        self.ExitBtn.frame = self.ExitBtn.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? distanceToMove : -distanceToMove))
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? -distanceToMove : distanceToMove))
         UIView.commitAnimations()
     }

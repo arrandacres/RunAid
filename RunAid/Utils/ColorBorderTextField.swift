@@ -20,9 +20,10 @@ class ColorBorderTextField: UITextField {
         self.setBorderColor()
     }
     func setBorderColor(){
-        self.layer.borderColor = UIColor.darkGray.cgColor // color you want
-        self.layer.borderWidth = 1
-        self.layer.cornerRadius = frame.size.height / 5
+//        self.layer.borderColor = UIColor.darkGray.cgColor // color you want
+//        self.layer.borderWidth = 1
+//        self.layer.cornerRadius = frame.size.height / 5
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 182, green: 181, blue:182, alpha:0.3)])
         // code which is common for all text fields
     }
 }

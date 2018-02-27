@@ -100,16 +100,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runners-373099_1920" translatesAutoresizingMaskIntoConstraints="NO" id="JoS-H6-MR8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1n1-bR-5Yi">
                                 <rect key="frame" x="50" y="67" width="275" height="500"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZP-yp-hnc" customClass="ColorBorderTextField" customModule="RunAid" customModuleProvider="target">
                                         <rect key="frame" x="10" y="220" width="255" height="30"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.39570552147239263" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="0bZ-4u-bqW"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                         <connections>
                                             <outlet property="delegate" destination="spI-JO-LVo" id="Yfl-HA-w13"/>
@@ -117,11 +121,12 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOE-OW-534" customClass="ColorBorderTextField" customModule="RunAid" customModuleProvider="target">
                                         <rect key="frame" x="10" y="270" width="255" height="30"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.39570552147239263" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Luf-ux-86g"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                         <connections>
                                             <outlet property="delegate" destination="spI-JO-LVo" id="fHo-DR-xLp"/>
@@ -129,11 +134,12 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CX6-Uf-TQP" customClass="ColorBorderTextField" customModule="RunAid" customModuleProvider="target">
                                         <rect key="frame" x="10" y="320" width="255" height="30"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.39570552147239263" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ZZR-Ng-mHR"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="spI-JO-LVo" id="EW7-NB-6K5"/>
@@ -141,11 +147,12 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="daR-6U-3WI" customClass="ColorBorderTextField" customModule="RunAid" customModuleProvider="target">
                                         <rect key="frame" x="10" y="370" width="255" height="30"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.39570552147239263" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5Jb-lD-a35"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <outlet property="delegate" destination="spI-JO-LVo" id="ph8-LL-rA3"/>
@@ -153,8 +160,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ydm-Tt-FVd" customClass="ColorBorderTextField" customModule="RunAid" customModuleProvider="target">
                                         <rect key="frame" x="10" y="170" width="255" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.39502252684049077" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                         <connections>
                                             <outlet property="delegate" destination="spI-JO-LVo" id="EP9-yT-pfh"/>
@@ -178,7 +186,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="iOE-OW-534" firstAttribute="top" secondItem="hZP-yp-hnc" secondAttribute="bottom" constant="20" id="2gb-UA-PVt"/>
                                     <constraint firstItem="8TL-PX-Hfg" firstAttribute="top" secondItem="daR-6U-3WI" secondAttribute="bottom" constant="40" id="3tB-LP-UOF"/>
@@ -213,7 +221,7 @@
                                     <constraint firstAttribute="width" constant="40" id="M4u-HG-2G2"/>
                                     <constraint firstAttribute="height" constant="40" id="nNi-0c-A8R"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="CrossIcon"/>
+                                <state key="normal" title="Button" image="CrossIconWhite"/>
                                 <connections>
                                     <action selector="crossBtn_pressed:" destination="spI-JO-LVo" eventType="touchUpInside" id="9m5-cX-LNN"/>
                                 </connections>
@@ -221,11 +229,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JoS-H6-MR8" firstAttribute="leading" secondItem="Kui-0f-LhL" secondAttribute="leading" id="2hD-E2-yYo"/>
                             <constraint firstItem="mdp-fE-qWr" firstAttribute="top" secondItem="Kui-0f-LhL" secondAttribute="top" id="DoU-2C-xGW"/>
                             <constraint firstItem="1n1-bR-5Yi" firstAttribute="leading" secondItem="Kui-0f-LhL" secondAttribute="leading" constant="50" id="F6Z-CV-yE0"/>
+                            <constraint firstItem="JoS-H6-MR8" firstAttribute="top" secondItem="946-C1-xPF" secondAttribute="top" id="GQp-Ps-Pcl"/>
+                            <constraint firstItem="JoS-H6-MR8" firstAttribute="trailing" secondItem="Kui-0f-LhL" secondAttribute="trailing" id="RGT-yM-Pbx"/>
                             <constraint firstItem="mdp-fE-qWr" firstAttribute="leading" secondItem="Kui-0f-LhL" secondAttribute="leading" constant="20" id="jYf-HG-mRj"/>
                             <constraint firstItem="Kui-0f-LhL" firstAttribute="trailing" secondItem="1n1-bR-5Yi" secondAttribute="trailing" constant="50" id="kAF-JL-kC8"/>
                             <constraint firstItem="Kui-0f-LhL" firstAttribute="bottom" secondItem="1n1-bR-5Yi" secondAttribute="bottom" constant="100" id="pgx-s7-LS4"/>
+                            <constraint firstItem="JoS-H6-MR8" firstAttribute="bottom" secondItem="Kui-0f-LhL" secondAttribute="bottom" id="sKl-GA-2oF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kui-0f-LhL"/>
                     </view>
@@ -233,6 +245,7 @@
                         <outlet property="ConfirmPasswordTxtField" destination="daR-6U-3WI" id="wwV-zf-Lip"/>
                         <outlet property="CreateAccountBtn" destination="8TL-PX-Hfg" id="qq1-ZL-3yl"/>
                         <outlet property="EmailAddrTxtField" destination="hZP-yp-hnc" id="x4x-XL-oiF"/>
+                        <outlet property="ExitBtn" destination="mdp-fE-qWr" id="sqK-DV-v7E"/>
                         <outlet property="PasswordTxtField" destination="CX6-Uf-TQP" id="Eac-3A-vXf"/>
                         <outlet property="PhoneNumberTxtField" destination="iOE-OW-534" id="0XI-fw-Odk"/>
                         <outlet property="UsernameTxtField" destination="Ydm-Tt-FVd" id="gl4-7Z-He8"/>
@@ -301,19 +314,6 @@
                                     <outlet property="delegate" destination="NLc-v1-e2E" id="5OA-v4-nYT"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19M-Xl-kww">
-                                <rect key="frame" x="50" y="535" width="275" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="4hb-4d-DFP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Don't have an account? Register Here!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="spI-JO-LVo" kind="show" id="vPR-IN-LqJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxg-wS-cup" customClass="RoundedButton" customModule="RunAid" customModuleProvider="target">
                                 <rect key="frame" x="125" y="410" width="125" height="50"/>
                                 <constraints>
@@ -330,6 +330,19 @@
                                     <action selector="logBtn_Pressed:" destination="NLc-v1-e2E" eventType="touchUpInside" id="nlJ-gW-B5D"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19M-Xl-kww">
+                                <rect key="frame" x="50" y="535" width="275" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="4hb-4d-DFP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Don't have an account? Register Here!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="spI-JO-LVo" kind="show" id="vPR-IN-LqJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -339,7 +352,7 @@
                             <constraint firstItem="BTH-Hi-qqR" firstAttribute="trailing" secondItem="Usl-sh-p22" secondAttribute="trailing" constant="60" id="GvI-pK-dPW"/>
                             <constraint firstItem="gtr-4L-olW" firstAttribute="leading" secondItem="BTH-Hi-qqR" secondAttribute="leading" constant="60" id="KKR-fs-DjC"/>
                             <constraint firstItem="Lrj-Tb-63g" firstAttribute="leading" secondItem="BTH-Hi-qqR" secondAttribute="leading" id="KaN-zO-Xew"/>
-                            <constraint firstItem="Usl-sh-p22" firstAttribute="top" secondItem="gtr-4L-olW" secondAttribute="bottom" constant="30" id="LcC-a3-t57"/>
+                            <constraint firstItem="Usl-sh-p22" firstAttribute="top" secondItem="gtr-4L-olW" secondAttribute="bottom" constant="20" id="LcC-a3-t57"/>
                             <constraint firstItem="19M-Xl-kww" firstAttribute="leading" secondItem="BTH-Hi-qqR" secondAttribute="leading" constant="50" id="Ml4-ck-jUI"/>
                             <constraint firstItem="Lrj-Tb-63g" firstAttribute="trailing" secondItem="BTH-Hi-qqR" secondAttribute="trailing" id="avu-gp-FJ3"/>
                             <constraint firstItem="Lrj-Tb-63g" firstAttribute="bottom" secondItem="BTH-Hi-qqR" secondAttribute="bottom" id="co6-fz-rJ3"/>
@@ -384,8 +397,9 @@
     </scenes>
     <resources>
         <image name="ButtonIdea1" width="191" height="64"/>
-        <image name="CrossIcon" width="1200" height="1200"/>
+        <image name="CrossIconWhite" width="1200" height="1200"/>
         <image name="first" width="30" height="30"/>
+        <image name="runners-373099_1920" width="1351" height="1920"/>
         <image name="second" width="30" height="30"/>
         <image name="tests" width="605" height="851"/>
     </resources>
