@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UCB-MJ-GMH">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Home Controller-->
+        <scene sceneID="coT-8a-eol">
+            <objects>
+                <controller id="UCB-MJ-GMH" customClass="HomeController" customModule="RunAidWatchApp_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="Username" textAlignment="center" id="i4n-XN-NR1">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                        </label>
+                        <label alignment="center" text="Email Address" id="yQ9-Xs-RUh">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="15"/>
+                        </label>
+                        <button width="1" alignment="left" title="Send Message" id="aXk-Hj-81r">
+                            <connections>
+                                <action selector="SendMsgBtn_Pressed" destination="UCB-MJ-GMH" id="kZ1-ey-bTL"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="SendMsgBtn_Pressed" destination="aXk-Hj-81r" id="O0k-iy-gnS"/>
+                        <outlet property="emailAddrLbl" destination="yQ9-Xs-RUh" id="hVT-NS-AOc"/>
+                        <outlet property="usernameLbl" destination="i4n-XN-NR1" id="v5a-Yc-PwD"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-189.17948717948718" y="-70.179487179487182"/>
+        </scene>
+    </scenes>
+</document>

@@ -21,6 +21,8 @@ class HomeViewController: UITabBarController {
         self.getCurrentUser()
     }
     
+    
+    
     //Get current AWSCognitoIdentityUser object from UserPool
     //Gets the details of said user - if successful assign attributes to userAttributes variable
     func getCurrentUser() {

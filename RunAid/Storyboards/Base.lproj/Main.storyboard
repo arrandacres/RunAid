@@ -42,6 +42,14 @@
                                     <action selector="logoutBtn_pressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="THg-uj-5cg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypn-Nz-opB">
+                                <rect key="frame" x="164" y="288" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Username"/>
+                                <connections>
+                                    <action selector="SendMsg_Pressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bH3-Qz-dfW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
