@@ -9,10 +9,13 @@ PODS:
     - AWSCore (= 2.6.12)
   - AWSCognitoIdentityProviderASF (1.0.1)
   - AWSCore (2.6.12)
+  - AWSDynamoDB (2.6.12):
+    - AWSCore (= 2.6.12)
 
 DEPENDENCIES:
   - AWSAuthUI (~> 2.6.6)
   - AWSCognitoIdentityProvider (~> 2.6.6)
+  - AWSDynamoDB (~> 2.6.6)
 
 SPEC CHECKSUMS:
   AWSAuthCore: 55376d5a47c2b5cefdd3f78d247e0a5496fc25c4
@@ -20,7 +23,8 @@ SPEC CHECKSUMS:
   AWSCognitoIdentityProvider: 2b7f74c4d6b63c9e5a3ba55db7453e997afa0566
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
   AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
+  AWSDynamoDB: a1626a8e025a12fa71723da8eee0c1ff51da5dc0
 
-PODFILE CHECKSUM: 08a53ac933b2e6bef46a7ad7e4f4f603267eeb92
+PODFILE CHECKSUM: 1904bcff9ce28f618f78505dcf2b44d8c5f9fce3
 
 COCOAPODS: 1.4.0

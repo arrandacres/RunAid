@@ -13,15 +13,20 @@ class HomeViewController: UITabBarController {
     
     var user:AWSCognitoIdentityUser?
     var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
+    var initialLauch = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set default tab
+        if initialLauch == true {
+            initialLauch = false
+            self.selectedIndex = 1 //Run Home Tab
+        }
+        
         //required for login -> redirects to login view
         self.getCurrentUser()
     }
-    
-    
     
     //Get current AWSCognitoIdentityUser object from UserPool
     //Gets the details of said user - if successful assign attributes to userAttributes variable

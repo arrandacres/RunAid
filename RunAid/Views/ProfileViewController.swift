@@ -9,8 +9,9 @@
 import UIKit
 import AWSCognitoIdentityProvider
 import WatchConnectivity
+import AWSDynamoDB
 
-class ProfileViewController: UIViewController, WCSessionDelegate {
+class ProfileViewController: UIViewController {
     
     var user:AWSCognitoIdentityUser?
     var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
@@ -18,20 +19,76 @@ class ProfileViewController: UIViewController, WCSessionDelegate {
     
     @IBOutlet weak var UsernameLbl: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        wcSession = self.setUpWatchConnection()
         
         let tabbar = tabBarController as! HomeViewController
         self.user = tabbar.user
         self.userAttributes = tabbar.userAttributes
         
         UsernameLbl.text = self.userAttributes?.filter { $0.name == "email"}.first?.value
-        
-        wcSession = WCSession.default
-        wcSession.delegate = self
-        wcSession.activate()
     }
+    
+    @IBAction func readEmergencyContacts(_ sender: Any) {
+        let emergencyContacts = getEmergencyContacts()
+    }
+    
+    func getEmergencyContacts() -> [[String:String]]{
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        var testTableObject: TestTable = TestTable();
+        testTableObject._userId = user?.username
+        
+        dynamoDbObjectMapper.load(TestTable.self, hashKey: "Bob", rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as? NSError {
+                print("The request failed. Error: \(error)")
+            } else if let result = task.result as? TestTable {
+                // Do something with task.result.
+                testTableObject = result
+                print(result)
+            }
+            return testTableObject._emergencyContacts
+        })
+        return [[String:String]]()
+    }
+    
+    @IBAction func createExampleUserBtn_pressed(_ sender: Any) {
+        createExampleUser()
+    }
+    func createExampleUser() {
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        let userItem: TestTable = TestTable()
+        
+        //userItem._userId = user?.username
+        userItem._userId = "Bob"
+        userItem._deviceId = UIDevice.current.identifierForVendor?.uuidString
+        userItem._emailAddress = userAttributes?.first(where: { (attribute) -> Bool in
+            attribute.name == "email"
+        })?.value
+        userItem._phoneNumber = "1234"
+        userItem._emergencyContacts = createExampleEmergencyContacts()
+        
+        
+        //Save a new item
+        dynamoDbObjectMapper.save(userItem, completionHandler: {
+            (error: Error?) -> Void in
+            
+            if let error = error {
+                print("Amazon DynamoDB Save Error: \(error)")
+                return
+            }
+            print("An item was saved.")
+        })
+    }
+    
+    func createExampleEmergencyContacts() -> [[String:String]]{
+        
+        let contact1: [String:String] = ["userId":"Steve","deviceId":"steveDevice","phone number":"888"]
+        let contact2: [String:String] = ["userId":"Terry","deviceId":"terryDevice","phone number":"777"]
+        let contact3: [String:String] = ["userId":"Frank","deviceId":"frankDevice","phone number":"555"]
+        return [contact1,contact2,contact3]
+    }
+    
     
     @IBAction func SendMsg_Pressed(_ sender: Any) {
         
@@ -58,25 +115,6 @@ class ProfileViewController: UIViewController, WCSessionDelegate {
     @IBAction func logoutBtn_pressed(_ sender: AnyObject) {
         user?.signOut()
         user?.getDetails()
-    }
-    
-    //Function utilised when message received from Apple Watch
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("iOS Data Received: ", message)
-        if let message = message["Watch Message"] as? String {
-            let alertView = self.CreateAlertWithActionButton(errorTitle: "Message From Watch", errorMessage: message)
-            self.present(alertView, animated: true)
-        }
-    }
-    
-    //Methods required to be implemented by WCSessionDelegate
-    func sessionDidBecomeInactive(_ session: WCSession) {
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-    }
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
     }
 }
 
