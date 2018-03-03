@@ -18,8 +18,6 @@
 		79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */; };
 		79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */; };
 		79B47B7120482E3B009DE5CA /* RunHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */; };
-		79B47B7320483CB8009DE5CA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 79B47B7220483CB8009DE5CA /* awsconfiguration.json */; };
-		79B47B7520483D39009DE5CA /* TestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B7420483D39009DE5CA /* TestTable.swift */; };
 		79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280822045CF4200B44469 /* UIViewControllerExtension.swift */; };
 		79D280872045DB0400B44469 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280862045DB0400B44469 /* RoundedButton.swift */; };
 		79D280892045E60700B44469 /* ColoredPlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */; };
@@ -30,6 +28,9 @@
 		79D280A22046B80200B44469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D280A12046B80200B44469 /* Assets.xcassets */; };
 		79D280A62046B80200B44469 /* RunAidWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 79D2808C2046B80200B44469 /* RunAidWatchApp.app */; };
 		79D280B42046E04400B44469 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280B32046E04400B44469 /* HomeController.swift */; };
+		79EF9B93204AD4CB0072AF04 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */; };
+		79EF9B95204AE5320072AF04 /* RunAidUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF9B94204AE5320072AF04 /* RunAidUser.swift */; };
+		79EF9B98204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */; };
 		79FA8113204063B30063099F /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8112204063B30063099F /* UserRegistrationViewController.swift */; };
 		79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FA8114204072820063099F /* AlertCreatorExtension.swift */; };
 /* End PBXBuildFile section */
@@ -90,8 +91,6 @@
 		79B132D2203DEA6A00250A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchKitMessageReceiverExtension.swift; sourceTree = "<group>"; };
 		79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunHomeViewController.swift; sourceTree = "<group>"; };
-		79B47B7220483CB8009DE5CA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = awsconfiguration.json; path = ../../../Downloads/awsconfiguration.json; sourceTree = "<group>"; };
-		79B47B7420483D39009DE5CA /* TestTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTable.swift; sourceTree = "<group>"; };
 		79D280822045CF4200B44469 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		79D280862045DB0400B44469 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredPlaceholderTextField.swift; sourceTree = "<group>"; };
@@ -104,6 +103,9 @@
 		79D280A12046B80200B44469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79D280A32046B80200B44469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79D280B32046E04400B44469 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		79EF9B94204AE5320072AF04 /* RunAidUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunAidUser.swift; sourceTree = "<group>"; };
+		79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegVCTextFieldDelegateExtension.swift; sourceTree = "<group>"; };
 		79FA8112204063B30063099F /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
 		79FA8114204072820063099F /* AlertCreatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreatorExtension.swift; sourceTree = "<group>"; };
 		ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunAid/Pods-RunAid.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,7 +154,6 @@
 			children = (
 				79D280862045DB0400B44469 /* RoundedButton.swift */,
 				79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */,
-				79B47B7420483D39009DE5CA /* TestTable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -191,6 +192,8 @@
 		79B132C3203DEA6A00250A67 /* RunAid */ = {
 			isa = PBXGroup;
 			children = (
+				79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */,
+				79EF9B96204AE7F00072AF04 /* Models */,
 				792C3825203EEDA400EF6D8C /* Authentication */,
 				79D280842045CFAF00B44469 /* Extensions */,
 				79D280852045CFC500B44469 /* Storyboards */,
@@ -199,7 +202,6 @@
 				79B132C4203DEA6A00250A67 /* AppDelegate.swift */,
 				79B132CD203DEA6A00250A67 /* Assets.xcassets */,
 				79B132D2203DEA6A00250A67 /* Info.plist */,
-				79B47B7220483CB8009DE5CA /* awsconfiguration.json */,
 			);
 			path = RunAid;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 				79FA8114204072820063099F /* AlertCreatorExtension.swift */,
 				79D280822045CF4200B44469 /* UIViewControllerExtension.swift */,
 				79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */,
+				79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +245,14 @@
 				79D280A32046B80200B44469 /* Info.plist */,
 			);
 			path = "RunAidWatchApp Extension";
+			sourceTree = "<group>";
+		};
+		79EF9B96204AE7F00072AF04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79EF9B94204AE5320072AF04 /* RunAidUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C633F1E5A885D1A26DA87E63 /* Pods */ = {
@@ -370,7 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B47B7320483CB8009DE5CA /* awsconfiguration.json in Resources */,
+				79EF9B93204AD4CB0072AF04 /* awsconfiguration.json in Resources */,
 				79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */,
 				79B132CE203DEA6A00250A67 /* Assets.xcassets in Resources */,
 				79B132CC203DEA6A00250A67 /* Main.storyboard in Resources */,
@@ -469,13 +480,14 @@
 				79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */,
 				79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */,
 				79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */,
+				79EF9B95204AE5320072AF04 /* RunAidUser.swift in Sources */,
 				79D280872045DB0400B44469 /* RoundedButton.swift in Sources */,
 				79D280892045E60700B44469 /* ColoredPlaceholderTextField.swift in Sources */,
-				79B47B7520483D39009DE5CA /* TestTable.swift in Sources */,
 				79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */,
 				79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */,
 				79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */,
 				791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */,
+				79EF9B98204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift in Sources */,
 				792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */,
 				79B47B7120482E3B009DE5CA /* RunHomeViewController.swift in Sources */,
 			);
@@ -646,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = RunAid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid;
@@ -661,6 +674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = RunAid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid;
@@ -675,6 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = "RunAidWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid.watchkitapp.watchkitextension;
@@ -692,6 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = "RunAidWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid.watchkitapp.watchkitextension;
@@ -710,6 +726,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				IBSC_MODULE = RunAidWatchApp_Extension;
 				INFOPLIST_FILE = RunAidWatchApp/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid.watchkitapp;
@@ -728,6 +745,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				IBSC_MODULE = RunAidWatchApp_Extension;
 				INFOPLIST_FILE = RunAidWatchApp/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid.watchkitapp;

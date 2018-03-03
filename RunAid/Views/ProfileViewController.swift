@@ -33,62 +33,24 @@ class ProfileViewController: UIViewController {
     @IBAction func readEmergencyContacts(_ sender: Any) {
         let emergencyContacts = getEmergencyContacts()
     }
-    
+
     func getEmergencyContacts() -> [[String:String]]{
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        var testTableObject: TestTable = TestTable();
-        testTableObject._userId = user?.username
-        
-        dynamoDbObjectMapper.load(TestTable.self, hashKey: "Bob", rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as? NSError {
+        var userObject: RunAidUser = RunAidUser();
+        userObject._username = user?.username
+
+        dynamoDbObjectMapper.load(RunAidUser.self, hashKey: "Bob", rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
-            } else if let result = task.result as? TestTable {
+            } else if let result = task.result as? RunAidUser {
                 // Do something with task.result.
-                testTableObject = result
+                userObject = result
                 print(result)
             }
-            return testTableObject._emergencyContacts
+            return userObject._emergencyContacts
         })
         return [[String:String]]()
     }
-    
-    @IBAction func createExampleUserBtn_pressed(_ sender: Any) {
-        createExampleUser()
-    }
-    func createExampleUser() {
-        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        let userItem: TestTable = TestTable()
-        
-        //userItem._userId = user?.username
-        userItem._userId = "Bob"
-        userItem._deviceId = UIDevice.current.identifierForVendor?.uuidString
-        userItem._emailAddress = userAttributes?.first(where: { (attribute) -> Bool in
-            attribute.name == "email"
-        })?.value
-        userItem._phoneNumber = "1234"
-        userItem._emergencyContacts = createExampleEmergencyContacts()
-        
-        
-        //Save a new item
-        dynamoDbObjectMapper.save(userItem, completionHandler: {
-            (error: Error?) -> Void in
-            
-            if let error = error {
-                print("Amazon DynamoDB Save Error: \(error)")
-                return
-            }
-            print("An item was saved.")
-        })
-    }
-    
-    func createExampleEmergencyContacts() -> [[String:String]]{
-        
-        let contact1: [String:String] = ["userId":"Steve","deviceId":"steveDevice","phone number":"888"]
-        let contact2: [String:String] = ["userId":"Terry","deviceId":"terryDevice","phone number":"777"]
-        let contact3: [String:String] = ["userId":"Frank","deviceId":"frankDevice","phone number":"555"]
-        return [contact1,contact2,contact3]
-    }
-    
     
     @IBAction func SendMsg_Pressed(_ sender: Any) {
         
@@ -97,7 +59,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //constructs dictionary of username and user details
+    //constructs dictionary of username and user details to send to Apple Watch
     private func constructData() -> [String:AnyObject] {
         
         var dataDictionary = [String: AnyObject]()
@@ -113,8 +75,14 @@ class ProfileViewController: UIViewController {
     
     //Logs user out and return to the Login View
     @IBAction func logoutBtn_pressed(_ sender: AnyObject) {
-        user?.signOut()
-        user?.getDetails()
+        let signOutAlert = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: .alert)
+        signOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        signOutAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action:UIAlertAction!) in
+            self.user?.signOut()
+            self.user?.getDetails()
+        })
+        self.present(signOutAlert, animated: true)
+
     }
 }
 

@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunAid/Authentication/LoginViewController.swift"
-            timestampString = "541518578.896566"
+            timestampString = "541805174.487379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunAid/Authentication/UserRegistrationViewController.swift"
-            timestampString = "541625137.954843"
+            timestampString = "541805174.488915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,13 +233,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.954958"
+            filePath = "RunAid/Authentication/UserRegistrationViewController.swift"
+            timestampString = "541805174.489959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "createUserObject()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunAid/Authentication/UserRegistrationViewController.swift"
+            timestampString = "541805174.4901381"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "createUserObject()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunAid/Extensions/UserRegVCTextFieldDelegateExtension.swift"
+            timestampString = "541805174.490366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "createExampleUserBtn_pressed(_:)"
+            landmarkName = "inputDidChange(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -249,125 +281,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.955521"
+            filePath = "RunAid/Authentication/LoginViewController.swift"
+            timestampString = "541805174.4914041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "createExampleUser()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.955985"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "createExampleUser()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.956449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "createExampleUser()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RunAid.ProfileViewController.createExampleUser() -&gt; ()"
-                  moduleName = "RunAid"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arrandacres/Desktop/RunAid/RunAid/Views/ProfileViewController.swift"
-                  timestampString = "541624793.096571"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "2420">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in RunAid.ProfileViewController.createExampleUser() -&gt; ()"
-                  moduleName = "RunAid"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arrandacres/Desktop/RunAid/RunAid/Views/ProfileViewController.swift"
-                  timestampString = "541624793.0985169"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.956926"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "createExampleUser()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.957233"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getEmergencyContacts()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunAid/Views/ProfileViewController.swift"
-            timestampString = "541625137.957546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "getEmergencyContacts()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "logBtn_Pressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

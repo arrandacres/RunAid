@@ -1,6 +1,6 @@
 //
-//  TestTable.swift
-//  MySampleApp
+//  RunAid.swift
+//  RunAid
 //
 //
 // Copyright 2017 Amazon.com, Inc. or its affiliates (Amazon). All Rights Reserved.
@@ -15,9 +15,9 @@ import Foundation
 import UIKit
 import AWSDynamoDB
 
-@objcMembers class TestTable: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+@objcMembers class RunAidUser: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
-    var _userId: String?
+    var _username: String?
     var _deviceId: String?
     var _emailAddress: String?
     var _emergencyContacts: [[String:String]]?
@@ -25,18 +25,18 @@ import AWSDynamoDB
     
     class func dynamoDBTableName() -> String {
 
-        return "runaid-mobilehub-56721510-TestTable"
+        return "runaid-mobilehub-56721510-RunAid"
     }
     
     class func hashKeyAttribute() -> String {
 
-        return "_userId"
+        return "_username"
     }
     
     override class func jsonKeyPathsByPropertyKey() -> [AnyHashable: Any] {
         return [
-               "_userId" : "userId",
-               "_deviceId" : "deviceId",
+               "_username" : "username",
+               "_deviceId" : "device id",
                "_emailAddress" : "email address",
                "_emergencyContacts" : "emergency contacts",
                "_phoneNumber" : "phone number",

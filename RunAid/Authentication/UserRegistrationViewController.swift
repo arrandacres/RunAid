@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AWSCognitoIdentityProvider
+import AWSDynamoDB
 
 class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswordAuthentication {
     
@@ -51,13 +52,55 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
                     self.present(alertView, animated: true)
                 }
             } else {
-                //user sign up successful - close current view controller - navigate back to Login View Controller
-                DispatchQueue.main.async {
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)
-                }
+                //user sign up successful - save user to DynamoDB
+                self.SaveNewUser(user: self.createUserObject())
             }
             return nil
         }
+    }
+    
+    //saves new user to DynamoDB RunAid table
+    func SaveNewUser(user: RunAidUser) {
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        //Save a new item
+        dynamoDbObjectMapper.save(user, completionHandler: {
+            (error: Error?) -> Void in
+            if error != nil {
+                let alert = self.CreateAlertWithActionButton(errorTitle: "User Save Error!", errorMessage: "Sorry there was an issue saving your details. Please retry user registration")
+                self.present(alert, animated: true)
+                return
+            }
+
+            //User succesfully created
+            //display Account Created alert - when press 'OK' close registration view
+            let alert = UIAlertController(title: "Account Created!", message: "Your account has been successfully created!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default){ (action:UIAlertAction!) in
+                DispatchQueue.main.async {
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }})
+            self.present(alert, animated: true)
+        })
+    }
+    
+    //creates RunAidUser object with attributes from user registration
+    func createUserObject() -> RunAidUser{
+        let userItem: RunAidUser = RunAidUser()
+        
+        userItem._username = UsernameTxtField.text
+        userItem._deviceId = UIDevice.current.identifierForVendor?.uuidString
+        userItem._emailAddress = EmailAddrTxtField.text
+        userItem._phoneNumber = PhoneNumberTxtField.text
+        
+        return userItem
+    }
+    
+    func createExampleEmergencyContacts() -> [[String:String]]{
+        
+        let contact1: [String:String] = ["userId":"Steve","deviceId":"steveDevice","phone number":"888"]
+        let contact2: [String:String] = ["userId":"Terry","deviceId":"terryDevice","phone number":"777"]
+        let contact3: [String:String] = ["userId":"Frank","deviceId":"frankDevice","phone number":"555"]
+        return [contact1,contact2,contact3]
     }
     
     //Gets the user credentials from the text fields and returns array of AWSCognitoIdentityUserAttributeType
@@ -104,56 +147,3 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
         }
     }
 }
-
-//When user presses return key in Username field automatically jumps to password field
-//code interpreted from: https://cocoacasts.com/five-simple-tips-to-make-user-friendly-forms-on-ios
-extension UserRegistrationViewController: UITextFieldDelegate{
-    
-    //When return key pressed - set focus to next text field
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case UsernameTxtField:
-            EmailAddrTxtField.becomeFirstResponder()
-        case EmailAddrTxtField:
-            PhoneNumberTxtField.becomeFirstResponder()
-        case PhoneNumberTxtField:
-            PasswordTxtField.becomeFirstResponder()
-        case PasswordTxtField:
-            ConfirmPasswordTxtField.becomeFirstResponder()
-        default: ConfirmPasswordTxtField.resignFirstResponder()
-        }
-        return true
-    }
-    
-    //move up view 200px when text field being edited i.e. keyboard is showing
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: true)
-    }
-    
-    //move down view 200px when text field stop being edited i.e. keyboard is not showing
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(edittedTextField: textField, distanceToMove: 200, upwards: false)
-    }
-    
-    //move text by given distance(px) for given direction
-    func moveTextField(edittedTextField: UITextField, distanceToMove: Int, upwards: Bool){
-        UIView.beginAnimations("moveTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(0.3)
-        self.ExitBtn.frame = self.ExitBtn.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? distanceToMove : -distanceToMove))
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(upwards ? -distanceToMove : distanceToMove))
-        UIView.commitAnimations()
-    }
-    
-    //if any of the text field are empty or if the entered password doesn't match the confirm passowrd text then CreateAccount button is disabled
-    //otherwise button is clickable
-    @objc func inputDidChange(_ sender:AnyObject) {
-        if (self.UsernameTxtField?.text != nil && self.EmailAddrTxtField?.text != nil && self.PhoneNumberTxtField?.text != nil && self.PasswordTxtField?.text != nil && self.ConfirmPasswordTxtField?.text != nil && self.PasswordTxtField?.text == self.ConfirmPasswordTxtField?.text) {
-            self.CreateAccountBtn?.isEnabled = true
-        } else {
-            self.CreateAccountBtn?.isEnabled = false
-        }
-    }
-}
-
-
