@@ -9,47 +9,52 @@
 import UIKit
 import AWSCognitoIdentityProvider
 import WatchConnectivity
-import AWSDynamoDB
+
 
 class ProfileViewController: UIViewController {
     
     var user:AWSCognitoIdentityUser?
     var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
     var wcSession : WCSession!
+    var reachability:Reachability?
     
     @IBOutlet weak var UsernameLbl: UILabel!
+    @IBOutlet weak var emailAddressLbl: UILabel!
+    @IBOutlet weak var phoneNumberLbl: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        wcSession = self.setUpWatchConnection()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reachability = Reachability.init()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         let tabbar = tabBarController as! HomeViewController
         self.user = tabbar.user
         self.userAttributes = tabbar.userAttributes
         
-        UsernameLbl.text = self.userAttributes?.filter { $0.name == "email"}.first?.value
+        if((self.reachability!.connection) == .none){
+            //set Username, Email Address, and PhoneNumber labels usign UserDefaults
+            UsernameLbl.text = UserDefaults.standard.value(forKey: "Username") as? String
+            emailAddressLbl.text = UserDefaults.standard.value(forKey: "EmailAddress") as? String
+            phoneNumberLbl.text = UserDefaults.standard.value(forKey: "PhoneNumber") as? String
+            
+        }else{
+            //set username, email address, and phone number using AWS Cognito user details
+            UsernameLbl.text = self.user?.username
+            emailAddressLbl.text = self.userAttributes?.filter { $0.name == "email"}.first?.value
+            phoneNumberLbl.text = self.userAttributes?.filter { $0.name == "phone_number"}.first?.value
+        }
+        
     }
     
-    @IBAction func readEmergencyContacts(_ sender: Any) {
-        let emergencyContacts = getEmergencyContacts()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
-    func getEmergencyContacts() -> [[String:String]]{
-        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        var userObject: RunAidUser = RunAidUser();
-        userObject._username = user?.username
-
-        dynamoDbObjectMapper.load(RunAidUser.self, hashKey: "Bob", rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as NSError? {
-                print("The request failed. Error: \(error)")
-            } else if let result = task.result as? RunAidUser {
-                // Do something with task.result.
-                userObject = result
-                print(result)
-            }
-            return userObject._emergencyContacts
-        })
-        return [[String:String]]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        wcSession = self.setUpWatchConnection()
     }
     
     @IBAction func SendMsg_Pressed(_ sender: Any) {
@@ -82,7 +87,7 @@ class ProfileViewController: UIViewController {
             self.user?.getDetails()
         })
         self.present(signOutAlert, animated: true)
-
+        
     }
 }
 

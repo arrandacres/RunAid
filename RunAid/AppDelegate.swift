@@ -38,8 +38,6 @@
             return true
         }
         
-        
-        
         class func getUserPool() -> AWSCognitoIdentityUserPool {
             return AWSCognitoIdentityUserPool(forKey: "runaid_userpool_MOBILEHUB_56721510")
         }
@@ -49,6 +47,10 @@
         
         //startPasswordAuthentication called by AWS - returns custom Login View
         func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+            
+            self.navigationController = nil
+            self.loginViewController = nil
+            
             //Sets up NavigationController and LoginViewController
             if(self.navigationController == nil) {
                 self.navigationController = self.window?.rootViewController as? UINavigationController

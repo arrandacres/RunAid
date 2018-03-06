@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 import AWSCognitoIdentityProvider
+import AWSDynamoDB
 
 class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentication {
+    
+    var user:AWSCognitoIdentityUser?
+    var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
     
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var usernameTxtField: UITextField!
@@ -19,6 +23,8 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
     
     //Globally declared AWSTaskCompletionSource used for Cognito auth
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
+    var reachability:Reachability?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +37,60 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
     }
     
     @IBAction func logBtn_Pressed(_ sender: AnyObject) {
-        //as long as the username and password text fields are not empty
-        if (self.usernameTxtField.text != nil && self.passwordTxtField.text != nil){
-            //setup Cognito Authentication Credentials using username/password fields
-            let awsCognitoAuthDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.usernameTxtField.text!, password: self.passwordTxtField.text!)
-            self.passwordAuthenticationCompletion?.set(result: awsCognitoAuthDetails)
+        
+        self.reachability = Reachability.init()
+        //if not connected to the internet display alert, if they are connected then attempt login
+        if((self.reachability!.connection) != .none){
+            //as long as the username and password text fields are not empty
+            if (self.usernameTxtField.text != nil && self.passwordTxtField.text != nil){
+                //setup Cognito Authentication Credentials using username/password fields
+                let awsCognitoAuthDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.usernameTxtField.text!, password: self.passwordTxtField.text!)
+                self.passwordAuthenticationCompletion?.set(result: awsCognitoAuthDetails)
+            }
+        }else{
+            let alertController = self.CreateAlertWithActionButton(errorTitle: "No Internet connection!", errorMessage: "Connect your device to the Internet to Login")
+            self.present(alertController, animated: true, completion:  nil)
         }
     }
+    
+//    func createUserDefaults(loggedInUser: AWSCognitoIdentityUser ) {
+//
+//        let username = loggedInUser.username
+//        let email = self.userAttributes?.filter { $0.name == "email"}.first?.value
+//        let phoneNumber = self.userAttributes?.filter{ $0.name == "phone_number"}.first?.value
+//        let emergencyContacts = getEmergencyContacts()
+//
+//        print("Login")
+//        print("Username: " + username!)
+//        //print("Email: " + email!)
+//        //print("Phone Number: " + phoneNumber!)
+//
+//        let userObject = getEmergencyContacts()
+//        let defaults = UserDefaults.standard
+//
+//        defaults.set(username, forKey: "Username")
+//        defaults.set(userObject._emailAddress, forKey: "EmailAddress")
+//        defaults.set(userObject._phoneNumber, forKey: "PhoneNumber")
+//        defaults.set(userObject._emergencyContacts, forKey: "EmergencyContacts")
+//    }
+//
+//    func getEmergencyContacts() -> RunAidUser{
+//        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+//        var userObject: RunAidUser = RunAidUser();
+//        userObject._username = user?.username
+//
+//        dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+//            if let error = task.error as NSError? {
+//                print("The request failed. Error: \(error)")
+//            } else if let result = task.result as? RunAidUser {
+//                // Do something with task.result.
+//                userObject = result
+//                print(result)
+//            }
+//            return userObject
+//        })
+//        return RunAidUser()
+//    }
     
     //
     @objc private func textDidChange(_ notification: Notification) {
@@ -87,14 +140,18 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
                 let alertController = self.CreateAlertWithActionButton(errorTitle: (error.userInfo["__type"] as? String)!, errorMessage: (error.userInfo["message"] as? String)!)
                 self.present(alertController, animated: true, completion:  nil)
             } else {
-                self.dismiss(animated: true, completion: {
-                    self.usernameTxtField?.text = nil
-                    self.passwordTxtField?.text = nil
-                })
+                //GOES HERE
+                
+                //TEST
+                //self.user = AppDelegate.getUserPool().currentUser()!
+
+                //self.createUserDefaults(loggedInUser: AppDelegate.getUserPool().currentUser()!)
+                self.usernameTxtField?.text = nil
+                self.passwordTxtField?.text = nil
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
-    
 }
 
 //When user presses return key in Username field automatically jumps to password field
