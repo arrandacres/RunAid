@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2CA20656D827DF8DFBC73F22 /* Pods_RunAid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */; };
 		791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791C46A62044B7B200A47402 /* HomeViewController.swift */; };
+		792874F520503ECD0098D7E1 /* AddContactByUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792874F420503ECD0098D7E1 /* AddContactByUsernameVC.swift */; };
+		792874F720503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792874F620503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift */; };
 		792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C3823203EED0E00EF6D8C /* LoginViewController.swift */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
 		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
@@ -19,6 +21,9 @@
 		79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */; };
 		79B47B7120482E3B009DE5CA /* RunHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */; };
 		79BE941A204DD32F009657BE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE9419204DD32F009657BE /* Reachability.swift */; };
+		79BE941C204EC60A009657BE /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE941B204EC60A009657BE /* EmergencyContactCell.swift */; };
+		79BE941E204F12C0009657BE /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE941D204F12C0009657BE /* RoundedView.swift */; };
+		79BE942020501478009657BE /* AddEmergencyContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE941F20501478009657BE /* AddEmergencyContactViewController.swift */; };
 		79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280822045CF4200B44469 /* UIViewControllerExtension.swift */; };
 		79D280872045DB0400B44469 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280862045DB0400B44469 /* RoundedButton.swift */; };
 		79D280892045E60700B44469 /* ColoredPlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */; };
@@ -81,6 +86,8 @@
 /* Begin PBXFileReference section */
 		049FAF4354C0D86EE9B17FB0 /* Pods-RunAid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunAid.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunAid/Pods-RunAid.release.xcconfig"; sourceTree = "<group>"; };
 		791C46A62044B7B200A47402 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		792874F420503ECD0098D7E1 /* AddContactByUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactByUsernameVC.swift; sourceTree = "<group>"; };
+		792874F620503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactByPhoneNumberVC.swift; sourceTree = "<group>"; };
 		792C3823203EED0E00EF6D8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +100,9 @@
 		79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchKitMessageReceiverExtension.swift; sourceTree = "<group>"; };
 		79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunHomeViewController.swift; sourceTree = "<group>"; };
 		79BE9419204DD32F009657BE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		79BE941B204EC60A009657BE /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
+		79BE941D204F12C0009657BE /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		79BE941F20501478009657BE /* AddEmergencyContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmergencyContactViewController.swift; sourceTree = "<group>"; };
 		79D280822045CF4200B44469 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		79D280862045DB0400B44469 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredPlaceholderTextField.swift; sourceTree = "<group>"; };
@@ -143,7 +153,8 @@
 		791C46A82044BEAB00A47402 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				79B132C6203DEA6A00250A67 /* ProfileViewController.swift */,
+				792C3825203EEDA400EF6D8C /* Authentication */,
+				792874F82051A3EA0098D7E1 /* Profile */,
 				79B132C8203DEA6A00250A67 /* SettingsViewController.swift */,
 				79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */,
 				791C46A62044B7B200A47402 /* HomeViewController.swift */,
@@ -157,8 +168,20 @@
 				79BE9419204DD32F009657BE /* Reachability.swift */,
 				79D280862045DB0400B44469 /* RoundedButton.swift */,
 				79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */,
+				79BE941D204F12C0009657BE /* RoundedView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		792874F82051A3EA0098D7E1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				79BE941F20501478009657BE /* AddEmergencyContactViewController.swift */,
+				792874F420503ECD0098D7E1 /* AddContactByUsernameVC.swift */,
+				792874F620503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift */,
+				79B132C6203DEA6A00250A67 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		792C3825203EEDA400EF6D8C /* Authentication */ = {
@@ -197,7 +220,6 @@
 			children = (
 				79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */,
 				79EF9B96204AE7F00072AF04 /* Models */,
-				792C3825203EEDA400EF6D8C /* Authentication */,
 				79D280842045CFAF00B44469 /* Extensions */,
 				79D280852045CFC500B44469 /* Storyboards */,
 				791C46A92044BF4900A47402 /* Utils */,
@@ -254,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				79EF9B94204AE5320072AF04 /* RunAidUser.swift */,
+				79BE941B204EC60A009657BE /* EmergencyContactCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +371,11 @@
 					79B132C0203DEA6A00250A67 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					79D2808B2046B80200B44469 = {
 						CreatedOnToolsVersion = 9.2;
@@ -484,11 +512,16 @@
 				79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */,
 				79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */,
 				79EF9B95204AE5320072AF04 /* RunAidUser.swift in Sources */,
+				79BE942020501478009657BE /* AddEmergencyContactViewController.swift in Sources */,
 				79D280872045DB0400B44469 /* RoundedButton.swift in Sources */,
+				79BE941C204EC60A009657BE /* EmergencyContactCell.swift in Sources */,
 				79D280892045E60700B44469 /* ColoredPlaceholderTextField.swift in Sources */,
 				79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */,
+				792874F520503ECD0098D7E1 /* AddContactByUsernameVC.swift in Sources */,
 				79BE941A204DD32F009657BE /* Reachability.swift in Sources */,
 				79D280832045CF4200B44469 /* UIViewControllerExtension.swift in Sources */,
+				79BE941E204F12C0009657BE /* RoundedView.swift in Sources */,
+				792874F720503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift in Sources */,
 				79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */,
 				791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */,
 				79EF9B98204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift in Sources */,

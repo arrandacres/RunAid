@@ -95,14 +95,6 @@ class UserRegistrationViewController: UIViewController, AWSCognitoIdentityPasswo
         return userItem
     }
     
-    func createExampleEmergencyContacts() -> [[String:String]]{
-        
-        let contact1: [String:String] = ["userId":"Steve","deviceId":"steveDevice","phone number":"888"]
-        let contact2: [String:String] = ["userId":"Terry","deviceId":"terryDevice","phone number":"777"]
-        let contact3: [String:String] = ["userId":"Frank","deviceId":"frankDevice","phone number":"555"]
-        return [contact1,contact2,contact3]
-    }
-    
     //Gets the user credentials from the text fields and returns array of AWSCognitoIdentityUserAttributeType
     func GetUserCognitoCredentials() -> [AWSCognitoIdentityUserAttributeType]{
         

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//When user presses return key in Username field automatically jumps to password field
+//When user presses return key in Username field automatically jumps to password field etc.
 //code interpreted from: https://cocoacasts.com/five-simple-tips-to-make-user-friendly-forms-on-ios
 extension UserRegistrationViewController: UITextFieldDelegate{
     

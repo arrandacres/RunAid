@@ -25,7 +25,6 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
     var reachability:Reachability?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenBackgroundTouched()
@@ -53,46 +52,32 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
         }
     }
     
-//    func createUserDefaults(loggedInUser: AWSCognitoIdentityUser ) {
-//
-//        let username = loggedInUser.username
-//        let email = self.userAttributes?.filter { $0.name == "email"}.first?.value
-//        let phoneNumber = self.userAttributes?.filter{ $0.name == "phone_number"}.first?.value
-//        let emergencyContacts = getEmergencyContacts()
-//
-//        print("Login")
-//        print("Username: " + username!)
-//        //print("Email: " + email!)
-//        //print("Phone Number: " + phoneNumber!)
-//
-//        let userObject = getEmergencyContacts()
-//        let defaults = UserDefaults.standard
-//
-//        defaults.set(username, forKey: "Username")
-//        defaults.set(userObject._emailAddress, forKey: "EmailAddress")
-//        defaults.set(userObject._phoneNumber, forKey: "PhoneNumber")
-//        defaults.set(userObject._emergencyContacts, forKey: "EmergencyContacts")
-//    }
-//
-//    func getEmergencyContacts() -> RunAidUser{
-//        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-//        var userObject: RunAidUser = RunAidUser();
-//        userObject._username = user?.username
-//
-//        dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-//            if let error = task.error as NSError? {
-//                print("The request failed. Error: \(error)")
-//            } else if let result = task.result as? RunAidUser {
-//                // Do something with task.result.
-//                userObject = result
-//                print(result)
-//            }
-//            return userObject
-//        })
-//        return RunAidUser()
-//    }
+    func createUserDefaults(loggedInUsername: String ) -> AWSTask<AnyObject>{
+        
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        var userObject: RunAidUser = RunAidUser();
+        let defaults = UserDefaults.standard
+        userObject._username = loggedInUsername
+        
+        self.performSegue(withIdentifier: "LoadingViewSegue", sender: self)
+        
+        return dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else if let result = task.result as? RunAidUser {
+                // Do something with task.result.
+                userObject = result
+                print(result)
+                defaults.set(userObject._username, forKey: "Username")
+                defaults.set(userObject._emailAddress, forKey: "EmailAddress")
+                defaults.set(userObject._phoneNumber, forKey: "PhoneNumber")
+                defaults.set(userObject._emergencyContacts, forKey: "EmergencyContacts")
+                self.dismiss(animated: false, completion: nil)
+            }
+            return userObject
+        })
+    }
     
-    //
     @objc private func textDidChange(_ notification: Notification) {
         var formIsValid = true
         
@@ -140,15 +125,37 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
                 let alertController = self.CreateAlertWithActionButton(errorTitle: (error.userInfo["__type"] as? String)!, errorMessage: (error.userInfo["message"] as? String)!)
                 self.present(alertController, animated: true, completion:  nil)
             } else {
-                //GOES HERE
                 
-                //TEST
-                //self.user = AppDelegate.getUserPool().currentUser()!
+                let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+                var userObject: RunAidUser = RunAidUser();
+                let defaults = UserDefaults.standard
+                userObject._username = self.usernameTxtField.text!
+                
+                //self.performSegue(withIdentifier: "LoadingViewSegue", sender: self)
+                
+                dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>!) -> Any? in
+                    if let error = task.error as NSError? {
+                        print("The request failed. Error: \(error)")
+                    } else if let result = task.result as? RunAidUser {
+                        // Do something with task.result.
+                        userObject = result
+                        print("LOGIN RESULT")
+                        print(result)
+                        defaults.set(userObject._username, forKey: "Username")
+                        defaults.set(userObject._emailAddress, forKey: "EmailAddress")
+                        defaults.set(userObject._phoneNumber, forKey: "PhoneNumber")
+                        defaults.set(userObject._emergencyContacts ?? [[String:String]](), forKey: "EmergencyContacts")
+                        
+                        self.usernameTxtField?.text = nil
+                        self.passwordTxtField?.text = nil
 
-                //self.createUserDefaults(loggedInUser: AppDelegate.getUserPool().currentUser()!)
-                self.usernameTxtField?.text = nil
-                self.passwordTxtField?.text = nil
-                self.dismiss(animated: true, completion: nil)
+                        sleep(UInt32(0.8))
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    return nil
+                })
+
+                
             }
         }
     }
@@ -160,7 +167,7 @@ extension LoginViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-            case usernameTxtField:
+        case usernameTxtField:
             passwordTxtField.becomeFirstResponder()
         default: passwordTxtField.resignFirstResponder()
         }
