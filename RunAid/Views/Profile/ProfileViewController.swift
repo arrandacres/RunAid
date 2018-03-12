@@ -46,12 +46,6 @@ class ProfileViewController: UIViewController, ModalHandler {
         //self.user = AppDelegate.getUserPool().currentUser()!
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         wcSession = self.setUpWatchConnection()
@@ -62,22 +56,6 @@ class ProfileViewController: UIViewController, ModalHandler {
         
         wcSession.sendMessage(constructData(), replyHandler: nil) { (error) in
             print(error.localizedDescription)
-        }
-    }
-    
-    //Modal View Dismissed causes reload of the data in the emergency contacts table - to include
-    //any additional contacts added
-    func modalDismissed() {
-        print("Modal View Dismissed")
-        emergencyContactsTable.reloadData()
-    }
-    
-    //used to set delegate object on the 'AddEmergencyContactSegue' modal view
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "AddEmergencyContactSeque") {
-            let vc = segue.destination as! AddEmergencyContactViewController
-            vc.delegate = self
         }
     }
     
@@ -94,6 +72,23 @@ class ProfileViewController: UIViewController, ModalHandler {
         }
         return dataDictionary
     }
+    
+    //Modal View Dismissed causes reload of the data in the emergency contacts table - to include
+    //any additional contacts added
+    func modalDismissed() {
+        emergencyContactsTable.reloadData()
+    }
+    
+    //used to set delegate object on the 'AddEmergencyContactSegue' modal view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "AddEmergencyContactSeque") {
+            let vc = segue.destination as! AddEmergencyContactViewController
+            vc.delegate = self
+        }
+    }
+    
+    
     
     //Logs user out and return to the Login View
     @IBAction func logoutBtn_pressed(_ sender: AnyObject) {

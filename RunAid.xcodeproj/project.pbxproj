@@ -12,6 +12,16 @@
 		792874F520503ECD0098D7E1 /* AddContactByUsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792874F420503ECD0098D7E1 /* AddContactByUsernameVC.swift */; };
 		792874F720503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792874F620503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift */; };
 		792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C3823203EED0E00EF6D8C /* LoginViewController.swift */; };
+		795523C92053EA800035FDFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795523C82053EA800035FDFE /* MapKit.framework */; };
+		799ABAFA205436260082260C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABAF9205436260082260C /* Run.swift */; };
+		799ABAFC205443DB0082260C /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABAFB205443DB0082260C /* CircularButton.swift */; };
+		799ABAFE2055810A0082260C /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABAFD2055810A0082260C /* BorderedView.swift */; };
+		799ABB00205584570082260C /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABAFF205584570082260C /* UIView+Borders.swift */; };
+		799ABB022055A72F0082260C /* RunValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB012055A72F0082260C /* RunValueFormatter.swift */; };
+		799ABB062055E0CD0082260C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB052055E0CD0082260C /* ViewController.swift */; };
+		799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB08205718C50082260C /* SOSInterfaceController.swift */; };
+		799ABB0B205718EE0082260C /* RunMonitoringInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */; };
+		799ABB0D205719060082260C /* RunButtonsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
 		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
 		79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SettingsViewController.swift */; };
@@ -20,6 +30,7 @@
 		79B132D1203DEA6A00250A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B132CF203DEA6A00250A67 /* LaunchScreen.storyboard */; };
 		79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */; };
 		79B47B7120482E3B009DE5CA /* RunHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */; };
+		79B69703205421EB00D9B0CB /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B69702205421EB00D9B0CB /* RunViewController.swift */; };
 		79BE941A204DD32F009657BE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE9419204DD32F009657BE /* Reachability.swift */; };
 		79BE941C204EC60A009657BE /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE941B204EC60A009657BE /* EmergencyContactCell.swift */; };
 		79BE941E204F12C0009657BE /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE941D204F12C0009657BE /* RoundedView.swift */; };
@@ -89,6 +100,16 @@
 		792874F420503ECD0098D7E1 /* AddContactByUsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactByUsernameVC.swift; sourceTree = "<group>"; };
 		792874F620503EEB0098D7E1 /* AddContactByPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactByPhoneNumberVC.swift; sourceTree = "<group>"; };
 		792C3823203EED0E00EF6D8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		795523C82053EA800035FDFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		799ABAF9205436260082260C /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		799ABAFB205443DB0082260C /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		799ABAFD2055810A0082260C /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		799ABAFF205584570082260C /* UIView+Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
+		799ABB012055A72F0082260C /* RunValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunValueFormatter.swift; sourceTree = "<group>"; };
+		799ABB052055E0CD0082260C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		799ABB08205718C50082260C /* SOSInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSInterfaceController.swift; sourceTree = "<group>"; };
+		799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunMonitoringInterfaceController.swift; sourceTree = "<group>"; };
+		799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunButtonsInterfaceController.swift; sourceTree = "<group>"; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B132C6203DEA6A00250A67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +120,7 @@
 		79B132D2203DEA6A00250A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchKitMessageReceiverExtension.swift; sourceTree = "<group>"; };
 		79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunHomeViewController.swift; sourceTree = "<group>"; };
+		79B69702205421EB00D9B0CB /* RunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
 		79BE9419204DD32F009657BE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		79BE941B204EC60A009657BE /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
 		79BE941D204F12C0009657BE /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -136,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795523C92053EA800035FDFE /* MapKit.framework in Frameworks */,
 				2CA20656D827DF8DFBC73F22 /* Pods_RunAid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,8 +178,8 @@
 			children = (
 				792C3825203EEDA400EF6D8C /* Authentication */,
 				792874F82051A3EA0098D7E1 /* Profile */,
+				79B69704205422BC00D9B0CB /* Run */,
 				79B132C8203DEA6A00250A67 /* SettingsViewController.swift */,
-				79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */,
 				791C46A62044B7B200A47402 /* HomeViewController.swift */,
 			);
 			path = Views;
@@ -169,6 +192,9 @@
 				79D280862045DB0400B44469 /* RoundedButton.swift */,
 				79D280882045E60700B44469 /* ColoredPlaceholderTextField.swift */,
 				79BE941D204F12C0009657BE /* RoundedView.swift */,
+				799ABAFB205443DB0082260C /* CircularButton.swift */,
+				799ABAFD2055810A0082260C /* BorderedView.swift */,
+				799ABB012055A72F0082260C /* RunValueFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -191,6 +217,16 @@
 				79FA8112204063B30063099F /* UserRegistrationViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		799ABB07205718A80082260C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				799ABB08205718C50082260C /* SOSInterfaceController.swift */,
+				799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */,
+				799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		79B132B8203DEA6A00250A67 = {
@@ -231,6 +267,15 @@
 			path = RunAid;
 			sourceTree = "<group>";
 		};
+		79B69704205422BC00D9B0CB /* Run */ = {
+			isa = PBXGroup;
+			children = (
+				79B47B7020482E3B009DE5CA /* RunHomeViewController.swift */,
+				79B69702205421EB00D9B0CB /* RunViewController.swift */,
+			);
+			path = Run;
+			sourceTree = "<group>";
+		};
 		79D280842045CFAF00B44469 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +283,7 @@
 				79D280822045CF4200B44469 /* UIViewControllerExtension.swift */,
 				79B47B6E20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift */,
 				79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */,
+				799ABAFF205584570082260C /* UIView+Borders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,10 +310,12 @@
 		79D2809C2046B80200B44469 /* RunAidWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				799ABB07205718A80082260C /* Views */,
 				79D280B32046E04400B44469 /* HomeController.swift */,
 				79D2809F2046B80200B44469 /* ExtensionDelegate.swift */,
 				79D280A12046B80200B44469 /* Assets.xcassets */,
 				79D280A32046B80200B44469 /* Info.plist */,
+				799ABB052055E0CD0082260C /* ViewController.swift */,
 			);
 			path = "RunAidWatchApp Extension";
 			sourceTree = "<group>";
@@ -277,6 +325,7 @@
 			children = (
 				79EF9B94204AE5320072AF04 /* RunAidUser.swift */,
 				79BE941B204EC60A009657BE /* EmergencyContactCell.swift */,
+				799ABAF9205436260082260C /* Run.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +342,7 @@
 		FB2A048D8FDCC55DD55286F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				795523C82053EA800035FDFE /* MapKit.framework */,
 				F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */,
 			);
 			name = Frameworks;
@@ -372,8 +422,11 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -511,10 +564,15 @@
 				79FA8115204072820063099F /* AlertCreatorExtension.swift in Sources */,
 				79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */,
 				79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */,
+				799ABB022055A72F0082260C /* RunValueFormatter.swift in Sources */,
+				79B69703205421EB00D9B0CB /* RunViewController.swift in Sources */,
 				79EF9B95204AE5320072AF04 /* RunAidUser.swift in Sources */,
 				79BE942020501478009657BE /* AddEmergencyContactViewController.swift in Sources */,
+				799ABAFE2055810A0082260C /* BorderedView.swift in Sources */,
 				79D280872045DB0400B44469 /* RoundedButton.swift in Sources */,
+				799ABB00205584570082260C /* UIView+Borders.swift in Sources */,
 				79BE941C204EC60A009657BE /* EmergencyContactCell.swift in Sources */,
+				799ABAFA205436260082260C /* Run.swift in Sources */,
 				79D280892045E60700B44469 /* ColoredPlaceholderTextField.swift in Sources */,
 				79B47B6F20481F2E009DE5CA /* WatchKitMessageReceiverExtension.swift in Sources */,
 				792874F520503ECD0098D7E1 /* AddContactByUsernameVC.swift in Sources */,
@@ -526,6 +584,7 @@
 				791C46A72044B7B200A47402 /* HomeViewController.swift in Sources */,
 				79EF9B98204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift in Sources */,
 				792C3824203EED0E00EF6D8C /* LoginViewController.swift in Sources */,
+				799ABAFC205443DB0082260C /* CircularButton.swift in Sources */,
 				79B47B7120482E3B009DE5CA /* RunHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,8 +593,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799ABB062055E0CD0082260C /* ViewController.swift in Sources */,
+				799ABB0B205718EE0082260C /* RunMonitoringInterfaceController.swift in Sources */,
+				799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */,
 				79D280A02046B80200B44469 /* ExtensionDelegate.swift in Sources */,
 				79D280B42046E04400B44469 /* HomeController.swift in Sources */,
+				799ABB0D205719060082260C /* RunButtonsInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

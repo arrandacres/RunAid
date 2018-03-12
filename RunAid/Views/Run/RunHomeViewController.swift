@@ -34,22 +34,25 @@ class RunHomeViewController: UIViewController {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
-            userLocation = locationManager.location
         }
-        self.showUserLocationOnMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        userLocation = locationManager.location
+        self.showUserLocationOnMap()
+        
     }
     
     //show user location and 1km square region
     func showUserLocationOnMap() {
         //set map region to be 1km square from the users location
         let userCoOrdRegion = MKCoordinateRegionMakeWithDistance((userLocation?.coordinate)!, 1000, 1000)
+        mapView.showsScale = true
         //set map to show user's location region
-        mapView.setRegion(userCoOrdRegion, animated: true)
+        mapView.setRegion(userCoOrdRegion,animated: true)
     }
 }
 
@@ -59,8 +62,6 @@ extension RunHomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             userLocation = location
-            print("Location Manager Delegate")
-            print(location.coordinate)
         }
     }
     
