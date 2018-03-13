@@ -48,30 +48,9 @@ class ProfileViewController: UIViewController, ModalHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        wcSession = self.setUpWatchConnection()
     }
     
-    //Send Message to Apple Watch
-    @IBAction func SendMsg_Pressed(_ sender: Any) {
-        
-        wcSession.sendMessage(constructData(), replyHandler: nil) { (error) in
-            print(error.localizedDescription)
-        }
-    }
     
-    //constructs dictionary of username and user details to send to Apple Watch
-    private func constructData() -> [String:AnyObject] {
-        
-        var dataDictionary = [String: AnyObject]()
-        dataDictionary["Username"] = user?.username as AnyObject
-        if let attributes = userAttributes
-        {
-            for attribute in attributes {
-                dataDictionary[attribute.name!] = attribute.value as AnyObject
-            }
-        }
-        return dataDictionary
-    }
     
     //Modal View Dismissed causes reload of the data in the emergency contacts table - to include
     //any additional contacts added

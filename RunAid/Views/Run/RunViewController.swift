@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import WatchConnectivity
 
 class RunViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class RunViewController: UIViewController {
     var runDistance = Measurement(value: 0, unit: UnitLength.meters)
     var runRoute = [CLLocation]()
     let locationManager: CLLocationManager = CLLocationManager()
+    var wcSession : WCSession!
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
@@ -27,6 +29,7 @@ class RunViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        wcSession = self.setUpWatchConnection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +43,15 @@ class RunViewController: UIViewController {
         runTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.runDuration += 1
             self.updateDisplay()
+            
+            if self.wcSession.isReachable{
+                self.sendAppleWatchMessage(message: self.constructRunDetailsMessage())
+            }
         }
         self.beginLocationTracking()
     }
     
-    private func updateDisplay() {
+    func updateDisplay() {
         
         //calculate pace
         let pace = Measurement(value : (runDuration != 0 ? (runDistance.value / Double(runDuration)) : 0) , unit: UnitSpeed.metersPerSecond)
@@ -53,6 +60,19 @@ class RunViewController: UIViewController {
         distanceLabel.text = RunValueFormatter.formatRunDistance(distanceRan: runDistance)
         timeLabel.text = RunValueFormatter.formatRunTime(runTimeInSeconds: runDuration)
         paceLabel.text = RunValueFormatter.formatRunPace(pace: pace)
+    }
+    
+    //builds run details message to send to Apple Watch during run
+    func constructRunDetailsMessage() -> [String:Any]{
+        var message = [String: Any]()
+        message["RunDistance"] = distanceLabel.text
+        message["RunTime"] = timeLabel.text
+        return message
+    }
+    
+    //send message to Apple Watch using given message
+    func sendAppleWatchMessage(message: [String: Any]) {
+        wcSession.sendMessage(message, replyHandler: nil)
     }
     
     func beginLocationTracking() {
@@ -71,9 +91,9 @@ class RunViewController: UIViewController {
         runMapView.setRegion(userCoOrdRegion,animated: true)
     }
     
-    
     @IBAction func finish_run_pressed(_ sender: Any) {
         
+        self.sendAppleWatchMessage(message:["UserOnRun": false])
         runTimer?.invalidate() //stops timer
         locationManager.stopUpdatingLocation() //stops tracking location - so map overlay doesn't update
         _ = self.navigationController?.popToRootViewController(animated: true) //returns to the run home view

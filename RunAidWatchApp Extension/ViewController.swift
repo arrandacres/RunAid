@@ -7,11 +7,22 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ViewController: WKInterfaceController {
 
+    var wcSession: WCSession!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        wcSession = WCSession.default
+        wcSession.delegate = self
+        wcSession.activate()
+    }
+    
+    override func didAppear() {
+        wcSession.delegate = self
     }
     
     

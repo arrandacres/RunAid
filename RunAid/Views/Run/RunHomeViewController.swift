@@ -25,10 +25,9 @@ class RunHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setup watch connection (if available)
-        wcSession = self.setUpWatchConnection()
-        locationManager.requestAlwaysAuthorization()
         
+        locationManager.requestAlwaysAuthorization()
+        wcSession = self.setUpWatchConnection()
         //if location services have been enabled, get users location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -40,10 +39,20 @@ class RunHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
         userLocation = locationManager.location
+        wcSession.delegate = self
         self.showUserLocationOnMap()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "startRunSegue") {
+            print("Start Run Button Pressed")
+            wcSession.sendMessage(["UserOnRun": true], replyHandler: nil, errorHandler: { (error) in
+                print("Send Error")
+                print(error)
+            })
+        }
     }
     
     //show user location and 1km square region

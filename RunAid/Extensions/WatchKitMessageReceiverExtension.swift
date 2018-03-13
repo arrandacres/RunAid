@@ -25,9 +25,11 @@ extension UIViewController: WCSessionDelegate {
     }
     
     public func sessionDidBecomeInactive(_ session: WCSession) {
+        print("Watch Session Became Inactive")
     }
     
     public func sessionDidDeactivate(_ session: WCSession) {
+        print("Watch Session Did Deactivate")
     }
     
     //Function utilised when message received from Apple Watch

@@ -11,19 +11,16 @@ import Foundation
 import WatchConnectivity
 
 
-class HomeController: WKInterfaceController, WCSessionDelegate {
+class HomeController: WKInterfaceController {
     
     @IBOutlet var usernameLbl: WKInterfaceLabel!
     
     @IBOutlet var emailAddrLbl: WKInterfaceLabel!
     var wcSession: WCSession!
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        //Session Connected successful
-    }
+
     
     //Message received from iPhone function
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    override func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         print("Data Received: ", message)
         if let username = message["Username"]  as? String {
             self.usernameLbl.setText(username)

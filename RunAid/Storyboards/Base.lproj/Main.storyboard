@@ -607,7 +607,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EsO-j1-aik" kind="show" id="VyK-MK-UCi"/>
+                                    <segue destination="EsO-j1-aik" kind="show" identifier="startRunSegue" id="VyK-MK-UCi"/>
                                 </connections>
                             </button>
                         </subviews>

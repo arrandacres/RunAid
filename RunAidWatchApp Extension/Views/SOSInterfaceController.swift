@@ -10,4 +10,6 @@ import WatchKit
 
 class SOSInterfaceController: WKInterfaceController {
 
+    @IBAction func send_sos_pressed() {
+    }
 }

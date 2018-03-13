@@ -21,7 +21,8 @@
 		799ABB062055E0CD0082260C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB052055E0CD0082260C /* ViewController.swift */; };
 		799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB08205718C50082260C /* SOSInterfaceController.swift */; };
 		799ABB0B205718EE0082260C /* RunMonitoringInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */; };
-		799ABB0D205719060082260C /* RunButtonsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */; };
+		799ABB0D205719060082260C /* CancelRunInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0C205719060082260C /* CancelRunInterfaceController.swift */; };
+		799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
 		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
 		79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SettingsViewController.swift */; };
@@ -109,7 +110,8 @@
 		799ABB052055E0CD0082260C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		799ABB08205718C50082260C /* SOSInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSInterfaceController.swift; sourceTree = "<group>"; };
 		799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunMonitoringInterfaceController.swift; sourceTree = "<group>"; };
-		799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunButtonsInterfaceController.swift; sourceTree = "<group>"; };
+		799ABB0C205719060082260C /* CancelRunInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRunInterfaceController.swift; sourceTree = "<group>"; };
+		799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceControllerMessageReceivedExtension.swift; sourceTree = "<group>"; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B132C6203DEA6A00250A67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +226,7 @@
 			children = (
 				799ABB08205718C50082260C /* SOSInterfaceController.swift */,
 				799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */,
-				799ABB0C205719060082260C /* RunButtonsInterfaceController.swift */,
+				799ABB0C205719060082260C /* CancelRunInterfaceController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +318,7 @@
 				79D280A12046B80200B44469 /* Assets.xcassets */,
 				79D280A32046B80200B44469 /* Info.plist */,
 				799ABB052055E0CD0082260C /* ViewController.swift */,
+				799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */,
 			);
 			path = "RunAidWatchApp Extension";
 			sourceTree = "<group>";
@@ -595,10 +598,11 @@
 			files = (
 				799ABB062055E0CD0082260C /* ViewController.swift in Sources */,
 				799ABB0B205718EE0082260C /* RunMonitoringInterfaceController.swift in Sources */,
+				799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */,
 				799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */,
 				79D280A02046B80200B44469 /* ExtensionDelegate.swift in Sources */,
 				79D280B42046E04400B44469 /* HomeController.swift in Sources */,
-				799ABB0D205719060082260C /* RunButtonsInterfaceController.swift in Sources */,
+				799ABB0D205719060082260C /* CancelRunInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

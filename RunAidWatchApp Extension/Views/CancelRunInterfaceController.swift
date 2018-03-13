@@ -8,6 +8,6 @@
 
 import WatchKit
 
-class RunButtonsInterfaceController: WKInterfaceController {
+class CancelRunInterfaceController: WKInterfaceController {
 
 }
