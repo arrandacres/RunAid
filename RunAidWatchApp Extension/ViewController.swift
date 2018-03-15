@@ -29,6 +29,9 @@ class ViewController: WKInterfaceController {
     @IBAction func start_run_pressed() {
 
         WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [wcSession], orientation: .horizontal, pageIndex: 1)
+        wcSession.sendMessage(["BeginRun": true], replyHandler: nil) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     

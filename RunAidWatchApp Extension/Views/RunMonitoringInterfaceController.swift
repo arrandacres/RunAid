@@ -32,10 +32,10 @@ class RunMonitoringInterfaceController: WKInterfaceController {
         wcSession.delegate = self
         wcSession.activate()
         
-//        if let watchConnectionSession = context as? WCSession {
-//            wcSession = watchConnectionSession
-//            print("Run Monitoring - WCSession established")
-//        }
+        //        if let watchConnectionSession = context as? WCSession {
+        //            wcSession = watchConnectionSession
+        //            print("Run Monitoring - WCSession established")
+        //        }
         
         guard HKHealthStore.isHealthDataAvailable() == true else {
             heartRateLabel.setText("not available")
@@ -76,7 +76,7 @@ class RunMonitoringInterfaceController: WKInterfaceController {
             if !continueRun {
                 DispatchQueue.main.async {
                     self.endWorkout()
-                    self.popToRootController()
+                    WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "StartRunInterfaceController", context: self.wcSession)])
                 }
             }
         }

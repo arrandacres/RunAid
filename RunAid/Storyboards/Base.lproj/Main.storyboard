@@ -635,7 +635,7 @@
         <!--Run View Controller-->
         <scene sceneID="ZHA-aN-0U1">
             <objects>
-                <viewController id="EsO-j1-aik" customClass="RunViewController" customModule="RunAid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RunDetailsVC" id="EsO-j1-aik" customClass="RunViewController" customModule="RunAid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P2I-uO-p6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

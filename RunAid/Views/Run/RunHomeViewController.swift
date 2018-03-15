@@ -55,8 +55,7 @@ class RunHomeViewController: UIViewController {
         if (segue.identifier == "startRunSegue") {
             print("Start Run Button Pressed")
             wcSession.sendMessage(["UserOnRun": true], replyHandler: nil, errorHandler: { (error) in
-                print("Send Error")
-                print(error)
+                print(error.localizedDescription)
             })
         }
     }
@@ -69,6 +68,19 @@ class RunHomeViewController: UIViewController {
         //set map to show user's location region
         mapView.setRegion(userCoOrdRegion,animated: true)
     }
+    
+//    override func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+//        if let beginRun = message["BeginRun"] as? Bool {
+//            if beginRun {
+//                //Go to Run View Controller
+//                DispatchQueue.main.async {
+//                    if let runViewController  = self.storyboard?.instantiateViewController(withIdentifier: "RunDetailsVC") as? RunViewController {
+//                        self.present(runViewController, animated: true, completion: nil)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 //LocationManagerDelegate Code via http://www.seemuapps.com/swift-get-users-location-gps-coordinates

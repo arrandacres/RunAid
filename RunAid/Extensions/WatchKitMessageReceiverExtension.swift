@@ -37,9 +37,16 @@ extension UIViewController: WCSessionDelegate {
     //Function utilised when message received from Apple Watch
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         print("iOS Data Received: ", message)
-        if let message = message["Watch Message"] as? String {
-            let alertView = self.CreateAlertWithActionButton(errorTitle: "Message From Watch", errorMessage: message)
-            self.present(alertView, animated: true)
+        if let beginRun = message["BeginRun"] as? Bool {
+            if beginRun {
+                //Go to Run View Controller
+                DispatchQueue.main.async {
+                    if let runViewController  = self.storyboard?.instantiateViewController(withIdentifier: "RunDetailsVC") as? RunViewController {
+                        //self.present(runViewController, animated: true, completion: nil)
+                        self.navigationController?.pushViewController(runViewController, animated: true)
+                    }
+                }
+            }
         }
     }
     
