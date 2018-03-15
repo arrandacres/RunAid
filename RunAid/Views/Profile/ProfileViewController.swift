@@ -48,6 +48,10 @@ class ProfileViewController: UIViewController, ModalHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tabbar = tabBarController as! HomeViewController
+        self.user = tabbar.user
+        self.userAttributes = tabbar.userAttributes
     }
     
     
@@ -76,17 +80,16 @@ class ProfileViewController: UIViewController, ModalHandler {
         signOutAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action:UIAlertAction!) in
             
             //clear UserDefaults
-            let defaults = UserDefaults.standard
-            let dictionary = defaults.dictionaryRepresentation()
-            dictionary.keys.forEach { key in
-                defaults.removeObject(forKey: key)
-            }
+//            let defaults = UserDefaults.standard
+//            let dictionary = defaults.dictionaryRepresentation()
+//            dictionary.keys.forEach { key in
+//                defaults.removeObject(forKey: key)
+//            }
             
             self.user?.signOut()
             self.user?.getDetails()
         })
         self.present(signOutAlert, animated: true)
-        
     }
 }
 

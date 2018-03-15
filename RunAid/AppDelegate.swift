@@ -9,6 +9,8 @@
     import UIKit
     import AWSCore
     import AWSCognitoIdentityProvider
+    import HealthKit
+    import WatchConnectivity
     
     @UIApplicationMain
     class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +21,8 @@
         var storyboard: UIStoryboard?{
             return UIStoryboard(name: "Main", bundle: nil)
         }
+        
+        let healthStore = HKHealthStore()
         
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
             
@@ -40,6 +44,14 @@
         
         class func getUserPool() -> AWSCognitoIdentityUserPool {
             return AWSCognitoIdentityUserPool(forKey: "runaid_userpool_MOBILEHUB_56721510")
+        }
+        
+        // authorization from watch
+        func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+            
+            self.healthStore.handleAuthorizationForExtension { success, error in
+                
+            }
         }
     }
     

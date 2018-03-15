@@ -14,7 +14,6 @@ class HomeViewController: UITabBarController {
     
     var user:AWSCognitoIdentityUser?
     var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
-    var emergencyContacts:[[String:String]] = [[String:String]]()
     var initialLauch = true
     
     override func viewDidLoad() {
@@ -46,5 +45,11 @@ class HomeViewController: UITabBarController {
             self.userAttributes = task.result?.userAttributes
             return nil
         })
+        
+        let defaults = UserDefaults.standard
+        defaults.set("Arran1", forKey: "Username")
+        defaults.set("arran.dacres@gmail.com", forKey: "EmailAddress")
+        defaults.set("+44712744422", forKey: "PhoneNumber")
+        defaults.set([[String:String]](), forKey: "EmergencyContacts")
     }
 }

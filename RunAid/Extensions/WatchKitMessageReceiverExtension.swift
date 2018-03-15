@@ -22,6 +22,8 @@ extension UIViewController: WCSessionDelegate {
     }
     
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        //Connected Successfully
+        //Send message to Apple Watch to confirm connection -> set up receiver on 'Please Connect Your Apple Watch to iOS device' screen -> dismisses view when message received -- so that mobile app is only accessible when connected to iOS device with app installed
     }
     
     public func sessionDidBecomeInactive(_ session: WCSession) {

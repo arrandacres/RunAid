@@ -26,6 +26,10 @@ class RunHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tabbar = tabBarController as! HomeViewController
+        self.user = tabbar.user
+        self.userAttributes = tabbar.userAttributes
+        
         locationManager.requestAlwaysAuthorization()
         wcSession = self.setUpWatchConnection()
         //if location services have been enabled, get users location
@@ -39,9 +43,11 @@ class RunHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        userLocation = locationManager.location
         wcSession.delegate = self
+        if CLLocationManager.locationServicesEnabled() {
+        userLocation = locationManager.location
         self.showUserLocationOnMap()
+        }
         
     }
     
@@ -58,7 +64,7 @@ class RunHomeViewController: UIViewController {
     //show user location and 1km square region
     func showUserLocationOnMap() {
         //set map region to be 1km square from the users location
-        let userCoOrdRegion = MKCoordinateRegionMakeWithDistance((userLocation?.coordinate)!, 1000, 1000)
+        let userCoOrdRegion = MKCoordinateRegionMakeWithDistance((userLocation?.coordinate)!, 500, 500)
         mapView.showsScale = true
         //set map to show user's location region
         mapView.setRegion(userCoOrdRegion,animated: true)

@@ -92,11 +92,27 @@ class RunViewController: UIViewController {
     }
     
     @IBAction func finish_run_pressed(_ sender: Any) {
-        
         self.sendAppleWatchMessage(message:["UserOnRun": false])
         runTimer?.invalidate() //stops timer
         locationManager.stopUpdatingLocation() //stops tracking location - so map overlay doesn't update
-        _ = self.navigationController?.popToRootViewController(animated: true) //returns to the run home view
+        DispatchQueue.main.async {
+            _ = self.navigationController?.popToRootViewController(animated: true) //returns to the run home view
+        }
+    }
+    
+    //Function utilised when message received from Apple Watch
+    override func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("iOS Data Received: ", message)
+        if let stopRun = message["StopRun"] as? Bool {
+            if stopRun {
+                runTimer?.invalidate() //stops timer
+                locationManager.stopUpdatingLocation() //stops tracking location - so map overlay doesn't update
+                DispatchQueue.main.async {
+                    _ = self.navigationController?.popToRootViewController(animated: true) //returns to the run home view
+                }
+                
+            }
+        }
     }
 }
 

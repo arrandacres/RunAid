@@ -8,10 +8,15 @@
 
 import WatchKit
 import WatchConnectivity
+import HealthKit
 
 class ViewController: WKInterfaceController {
 
     var wcSession: WCSession!
+    
+    let healthStore: HKHealthStore = HKHealthStore()
+    let heartRateType: HKQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+    
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -20,6 +25,12 @@ class ViewController: WKInterfaceController {
         wcSession.delegate = self
         wcSession.activate()
     }
+    
+    @IBAction func start_run_pressed() {
+
+        WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [wcSession], orientation: .horizontal, pageIndex: 1)
+    }
+    
     
     override func didAppear() {
         wcSession.delegate = self

@@ -26,6 +26,8 @@
 	<string>We need to monitor your location to keep you safe.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to monitor your location to keep you safe.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We need to monitor your heart rate to keep you safe.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -37,6 +39,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>healthkit</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
@@ -55,9 +58,6 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

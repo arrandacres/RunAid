@@ -23,6 +23,8 @@
 		799ABB0B205718EE0082260C /* RunMonitoringInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */; };
 		799ABB0D205719060082260C /* CancelRunInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0C205719060082260C /* CancelRunInterfaceController.swift */; };
 		799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */; };
+		799ABB1220599F7B0082260C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799ABB1120599F7B0082260C /* HealthKit.framework */; };
+		799ABB15205AA5D70082260C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799ABB14205AA5D70082260C /* HealthKit.framework */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
 		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
 		79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SettingsViewController.swift */; };
@@ -45,7 +47,6 @@
 		79D280A02046B80200B44469 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D2809F2046B80200B44469 /* ExtensionDelegate.swift */; };
 		79D280A22046B80200B44469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D280A12046B80200B44469 /* Assets.xcassets */; };
 		79D280A62046B80200B44469 /* RunAidWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 79D2808C2046B80200B44469 /* RunAidWatchApp.app */; };
-		79D280B42046E04400B44469 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D280B32046E04400B44469 /* HomeController.swift */; };
 		79EF9B93204AD4CB0072AF04 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */; };
 		79EF9B95204AE5320072AF04 /* RunAidUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF9B94204AE5320072AF04 /* RunAidUser.swift */; };
 		79EF9B98204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */; };
@@ -112,6 +113,10 @@
 		799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunMonitoringInterfaceController.swift; sourceTree = "<group>"; };
 		799ABB0C205719060082260C /* CancelRunInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRunInterfaceController.swift; sourceTree = "<group>"; };
 		799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceControllerMessageReceivedExtension.swift; sourceTree = "<group>"; };
+		799ABB1020599F7A0082260C /* RunAid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunAid.entitlements; sourceTree = "<group>"; };
+		799ABB1120599F7B0082260C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		799ABB13205AA5D70082260C /* RunAidWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunAidWatchApp Extension.entitlements"; sourceTree = "<group>"; };
+		799ABB14205AA5D70082260C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B132C6203DEA6A00250A67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +143,6 @@
 		79D2809F2046B80200B44469 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		79D280A12046B80200B44469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79D280A32046B80200B44469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79D280B32046E04400B44469 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		79EF9B94204AE5320072AF04 /* RunAidUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunAidUser.swift; sourceTree = "<group>"; };
 		79EF9B97204B32CC0072AF04 /* UserRegVCTextFieldDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegVCTextFieldDelegateExtension.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799ABB1220599F7B0082260C /* HealthKit.framework in Frameworks */,
 				795523C92053EA800035FDFE /* MapKit.framework in Frameworks */,
 				2CA20656D827DF8DFBC73F22 /* Pods_RunAid.framework in Frameworks */,
 			);
@@ -169,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799ABB15205AA5D70082260C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +262,7 @@
 		79B132C3203DEA6A00250A67 /* RunAid */ = {
 			isa = PBXGroup;
 			children = (
+				799ABB1020599F7A0082260C /* RunAid.entitlements */,
 				79EF9B92204AD4CB0072AF04 /* awsconfiguration.json */,
 				79EF9B96204AE7F00072AF04 /* Models */,
 				79D280842045CFAF00B44469 /* Extensions */,
@@ -312,8 +319,8 @@
 		79D2809C2046B80200B44469 /* RunAidWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				799ABB13205AA5D70082260C /* RunAidWatchApp Extension.entitlements */,
 				799ABB07205718A80082260C /* Views */,
-				79D280B32046E04400B44469 /* HomeController.swift */,
 				79D2809F2046B80200B44469 /* ExtensionDelegate.swift */,
 				79D280A12046B80200B44469 /* Assets.xcassets */,
 				79D280A32046B80200B44469 /* Info.plist */,
@@ -345,6 +352,8 @@
 		FB2A048D8FDCC55DD55286F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				799ABB14205AA5D70082260C /* HealthKit.framework */,
+				799ABB1120599F7B0082260C /* HealthKit.framework */,
 				795523C82053EA800035FDFE /* MapKit.framework */,
 				F3C27EB44D3B6FCD9ACF8B09 /* Pods_RunAid.framework */,
 			);
@@ -428,6 +437,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -440,6 +452,14 @@
 					79D280972046B80200B44469 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -601,7 +621,6 @@
 				799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */,
 				799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */,
 				79D280A02046B80200B44469 /* ExtensionDelegate.swift in Sources */,
-				79D280B42046E04400B44469 /* HomeController.swift in Sources */,
 				799ABB0D205719060082260C /* CancelRunInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,6 +780,7 @@
 			baseConfigurationReference = ED89DF6F8BD924F039A9D0F4 /* Pods-RunAid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RunAid/RunAid.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = RunAid/Info.plist;
@@ -768,7 +788,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -777,6 +797,7 @@
 			baseConfigurationReference = 049FAF4354C0D86EE9B17FB0 /* Pods-RunAid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RunAid/RunAid.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = RunAid/Info.plist;
@@ -784,7 +805,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arrandacres.RunAid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -792,6 +813,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "RunAidWatchApp Extension/RunAidWatchApp Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = "RunAidWatchApp Extension/Info.plist";
@@ -810,6 +832,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "RunAidWatchApp Extension/RunAidWatchApp Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3Y978BNK3;
 				INFOPLIST_FILE = "RunAidWatchApp Extension/Info.plist";

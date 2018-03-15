@@ -10,10 +10,16 @@ import WatchKit
 import WatchConnectivity
 
 extension WKInterfaceController: WCSessionDelegate {
+    
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("Connected")
     }
     
+    public func sessionReachabilityDidChange(_ session: WCSession) {
+        if !session.isReachable {
+            print("Watch Connection Session Not Reachable")
+        }
+    }
     //apple watch receives message function
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
@@ -21,11 +27,11 @@ extension WKInterfaceController: WCSessionDelegate {
         if let continueRun = userOnRun{
             if continueRun {
                 DispatchQueue.main.async {
-                    self.pushController(withName: "RunDetailsView", context: nil)
+                    WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [session, session, session], orientation: .horizontal, pageIndex: 1)
                 }
             }else{
                 DispatchQueue.main.async {
-                    self.popToRootController()
+                    WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "StartRunInterfaceController", context: session)])
                 }
             }
         }
