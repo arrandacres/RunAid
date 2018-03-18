@@ -35,15 +35,19 @@ class RunViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //set duration, ane distance to 0 - and remove any previous run route overlays from map
         runDuration = 0
         runDistance = Measurement(value: 0, unit: UnitLength.meters)
         runRoute.removeAll()
         
         updateDisplay()
+        
+        //start run timer
         runTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.runDuration += 1
             self.updateDisplay()
             
+            //if watch is connected send message contain run values
             if self.wcSession.isReachable{
                 self.sendAppleWatchMessage(message: self.constructRunDetailsMessage())
             }
@@ -110,7 +114,6 @@ class RunViewController: UIViewController {
                 DispatchQueue.main.async {
                     _ = self.navigationController?.popToRootViewController(animated: true) //returns to the run home view
                 }
-                
             }
         }
     }

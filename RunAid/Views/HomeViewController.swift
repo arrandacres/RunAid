@@ -46,10 +46,10 @@ class HomeViewController: UITabBarController {
             return nil
         })
         
-        let defaults = UserDefaults.standard
-        defaults.set("Arran1", forKey: "Username")
-        defaults.set("arran.dacres@gmail.com", forKey: "EmailAddress")
-        defaults.set("+44712744422", forKey: "PhoneNumber")
-        defaults.set([[String:String]](), forKey: "EmergencyContacts")
+//        let defaults = UserDefaults.standard
+//        defaults.set("Arran1", forKey: "Username")
+//        defaults.set("arran.dacres@gmail.com", forKey: "EmailAddress")
+//        defaults.set("+44712744422", forKey: "PhoneNumber")
+//        defaults.set([[String:String]](), forKey: "EmergencyContacts")
     }
 }

@@ -16,7 +16,7 @@ protocol ModalHandler {
 }
 
 class ProfileViewController: UIViewController, ModalHandler {
-
+    
     var user:AWSCognitoIdentityUser?
     var userAttributes:[AWSCognitoIdentityProviderAttributeType]?
     var wcSession : WCSession!
@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController, ModalHandler {
         emailAddressLbl.text = UserDefaults.standard.value(forKey: "EmailAddress") as? String
         phoneNumberLbl.text = UserDefaults.standard.value(forKey: "PhoneNumber") as? String
         emergencyContacts = (UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]])!
+        emergencyContactsTable.reloadData()
         //self.user = AppDelegate.getUserPool().currentUser()!
     }
     
@@ -54,11 +55,11 @@ class ProfileViewController: UIViewController, ModalHandler {
         self.userAttributes = tabbar.userAttributes
     }
     
-    
-    
     //Modal View Dismissed causes reload of the data in the emergency contacts table - to include
     //any additional contacts added
     func modalDismissed() {
+        
+        emergencyContacts = (UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]])!
         emergencyContactsTable.reloadData()
     }
     
@@ -78,13 +79,6 @@ class ProfileViewController: UIViewController, ModalHandler {
         let signOutAlert = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: .alert)
         signOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
         signOutAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action:UIAlertAction!) in
-            
-            //clear UserDefaults
-//            let defaults = UserDefaults.standard
-//            let dictionary = defaults.dictionaryRepresentation()
-//            dictionary.keys.forEach { key in
-//                defaults.removeObject(forKey: key)
-//            }
             
             self.user?.signOut()
             self.user?.getDetails()
@@ -113,6 +107,7 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
         
         if editingStyle == .delete {
             emergencyContacts.remove(at: indexPath.row)
+            UserDefaults.standard.set(emergencyContacts, forKey: "EmergencyContacts")
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()

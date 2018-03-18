@@ -43,20 +43,24 @@ class RunHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        wcSession.delegate = self
+        wcSession.delegate = self   //set watch connection delegate
+        //if location services are enabled; set user location and update map
         if CLLocationManager.locationServicesEnabled() {
-        userLocation = locationManager.location
-        self.showUserLocationOnMap()
+            userLocation = locationManager.location
+            self.showUserLocationOnMap()
         }
         
     }
     
+    //before using segue to start run; send message to Apple Watch informing it to also start run
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "startRunSegue") {
             print("Start Run Button Pressed")
-            wcSession.sendMessage(["UserOnRun": true], replyHandler: nil, errorHandler: { (error) in
-                print(error.localizedDescription)
-            })
+            if self.wcSession.isReachable{
+                wcSession.sendMessage(["UserOnRun": true], replyHandler: nil, errorHandler: { (error) in
+                    print(error.localizedDescription)
+                })
+            }
         }
     }
     
@@ -68,19 +72,6 @@ class RunHomeViewController: UIViewController {
         //set map to show user's location region
         mapView.setRegion(userCoOrdRegion,animated: true)
     }
-    
-//    override func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-//        if let beginRun = message["BeginRun"] as? Bool {
-//            if beginRun {
-//                //Go to Run View Controller
-//                DispatchQueue.main.async {
-//                    if let runViewController  = self.storyboard?.instantiateViewController(withIdentifier: "RunDetailsVC") as? RunViewController {
-//                        self.present(runViewController, animated: true, completion: nil)
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
 
 //LocationManagerDelegate Code via http://www.seemuapps.com/swift-get-users-location-gps-coordinates

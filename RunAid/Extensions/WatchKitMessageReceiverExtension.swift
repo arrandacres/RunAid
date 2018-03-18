@@ -42,7 +42,6 @@ extension UIViewController: WCSessionDelegate {
                 //Go to Run View Controller
                 DispatchQueue.main.async {
                     if let runViewController  = self.storyboard?.instantiateViewController(withIdentifier: "RunDetailsVC") as? RunViewController {
-                        //self.present(runViewController, animated: true, completion: nil)
                         self.navigationController?.pushViewController(runViewController, animated: true)
                     }
                 }

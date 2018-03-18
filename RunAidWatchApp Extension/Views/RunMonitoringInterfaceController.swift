@@ -32,13 +32,9 @@ class RunMonitoringInterfaceController: WKInterfaceController {
         wcSession.delegate = self
         wcSession.activate()
         
-        //        if let watchConnectionSession = context as? WCSession {
-        //            wcSession = watchConnectionSession
-        //            print("Run Monitoring - WCSession established")
-        //        }
-        
+        //mkae sure user has authorised access to HealthKit - otherwise set heart rate label to '--- bpm'
         guard HKHealthStore.isHealthDataAvailable() == true else {
-            heartRateLabel.setText("not available")
+            heartRateLabel.setText("--- bpm")
             return
         }
         startWorkout()
@@ -48,19 +44,19 @@ class RunMonitoringInterfaceController: WKInterfaceController {
         super.willActivate()
         
         guard HKHealthStore.isHealthDataAvailable() == true else {
-            heartRateLabel.setText("not available")
+            heartRateLabel.setText("--- bpm")
             return
         }
         
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
-            heartRateLabel.setText("not allowed")
+            heartRateLabel.setText("--- bpm")
             return
         }
         
         let dataTypes = Set(arrayLiteral: quantityType)
         healthStore.requestAuthorization(toShare: nil, read: dataTypes) { (success, error) -> Void in
             if success == false {
-                self.heartRateLabel.setText("not allowed")
+                self.heartRateLabel.setText("--- bpm")
             }
         }
     }
@@ -80,6 +76,7 @@ class RunMonitoringInterfaceController: WKInterfaceController {
                 }
             }
         }
+            //else set the Run Distance and Time labels to the values from the message
         else{
             if let runDistance = message["RunDistance"] as? String {
                 distanceLabel.setText(runDistance)
@@ -122,18 +119,19 @@ extension RunMonitoringInterfaceController: HKWorkoutSessionDelegate {
                                           limit: HKObjectQueryNoLimit)
         { (query, samplesOrNil, deletedObjectsOrNil, newAnchor, errorOrNil) -> Void in
             
+            //ensure the samples are not nil
             guard let samples = samplesOrNil else {
-                // Handle the error here.
                 print(errorOrNil!.localizedDescription)
                 return
             }
+            //uses anchor so that the query knows which data has been previously read
             self.previousQueryAnchor = newAnchor
+            //retreives user heart rate from samples; and update heart rate label
             self.getAndUpdateUserHeartRate(samples: samples)
         }
         
         //Monitors updates to the HealthKit store
         query.updateHandler = { (query, samplesOrNil, deletedObjectsOrNil, newAnchor, errorOrNil) in
-            
             
             guard let samples = samplesOrNil else {
                 // Handle the error here.
@@ -196,6 +194,5 @@ extension RunMonitoringInterfaceController: HKWorkoutSessionDelegate {
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        
     }
 }
