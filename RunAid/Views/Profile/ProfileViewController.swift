@@ -42,7 +42,10 @@ class ProfileViewController: UIViewController, ModalHandler {
         UsernameLbl.text = UserDefaults.standard.value(forKey: "Username") as? String
         emailAddressLbl.text = UserDefaults.standard.value(forKey: "EmailAddress") as? String
         phoneNumberLbl.text = UserDefaults.standard.value(forKey: "PhoneNumber") as? String
-        emergencyContacts = (UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]])!
+        
+        if let emergencyContactsUD = UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]]{
+            emergencyContacts = emergencyContactsUD
+        }
         emergencyContactsTable.reloadData()
         //self.user = AppDelegate.getUserPool().currentUser()!
     }
@@ -58,7 +61,6 @@ class ProfileViewController: UIViewController, ModalHandler {
     //Modal View Dismissed causes reload of the data in the emergency contacts table - to include
     //any additional contacts added
     func modalDismissed() {
-        
         emergencyContacts = (UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]])!
         emergencyContactsTable.reloadData()
     }

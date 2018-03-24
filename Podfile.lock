@@ -11,11 +11,15 @@ PODS:
   - AWSCore (2.6.12)
   - AWSDynamoDB (2.6.12):
     - AWSCore (= 2.6.12)
+  - ButtonProgressBar-iOS (1.0.1)
+  - UIColor_Hex_Swift (4.0.1)
 
 DEPENDENCIES:
   - AWSAuthUI (~> 2.6.6)
   - AWSCognitoIdentityProvider (~> 2.6.6)
   - AWSDynamoDB (~> 2.6.6)
+  - ButtonProgressBar-iOS
+  - UIColor_Hex_Swift (~> 4.0.1)
 
 SPEC CHECKSUMS:
   AWSAuthCore: 55376d5a47c2b5cefdd3f78d247e0a5496fc25c4
@@ -24,7 +28,9 @@ SPEC CHECKSUMS:
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
   AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
   AWSDynamoDB: a1626a8e025a12fa71723da8eee0c1ff51da5dc0
+  ButtonProgressBar-iOS: 1127f15c7ab843648febc857fc2018c8224675c7
+  UIColor_Hex_Swift: c5ff88470499383b8fd85302d59344bb24ba9436
 
-PODFILE CHECKSUM: 1904bcff9ce28f618f78505dcf2b44d8c5f9fce3
+PODFILE CHECKSUM: d5b3584b797036f4bf73a8df234a88e0248d6c08
 
 COCOAPODS: 1.4.0

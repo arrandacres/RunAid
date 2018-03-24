@@ -20,11 +20,16 @@ class RunHomeViewController: UIViewController {
     var wcSession : WCSession!
     let locationManager: CLLocationManager = CLLocationManager()
     var userLocation: CLLocation?
+    var locationGoal: LocationGoal?
+    var locationCoOrds: CLLocationCoordinate2D?
+    var locationGoalAnnotation: MKPointAnnotation?
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
         
         let tabbar = tabBarController as! HomeViewController
         self.user = tabbar.user
@@ -49,19 +54,62 @@ class RunHomeViewController: UIViewController {
             userLocation = locationManager.location
             self.showUserLocationOnMap()
         }
+    }
+    
+    //long press gesture recogniser for map view
+    //when long press detected get the lat and long of the area on the map that was pressed
+    @IBAction func map_long_press(_ sender: UILongPressGestureRecognizer) {
         
+        if sender.state == .began {
+            locationCoOrds = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            self.performSegue(withIdentifier: "showLocationGoal", sender: self)
+        }
     }
     
     //before using segue to start run; send message to Apple Watch informing it to also start run
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "startRunSegue") {
-            print("Start Run Button Pressed")
             if self.wcSession.isReachable{
                 wcSession.sendMessage(["UserOnRun": true], replyHandler: nil, errorHandler: { (error) in
                     print(error.localizedDescription)
                 })
             }
+            let runViewController = segue.destination as! RunViewController
+            runViewController.locationGoal = locationGoal
+            runViewController.locationGoalAnnotation = locationGoalAnnotation
         }
+        
+        if segue.identifier == "showLocationGoal" {
+            let addLocationGoalVC = segue.destination as! AddLocationGoalViewController
+            
+            //saveTimeInterval callback function from AddLocationGoalViewController used to retreive selected time
+            //creates new locationGoal object and sets the location and time
+            addLocationGoalVC.saveTimeInterval = { (timeInterval) in
+                self.locationGoal = LocationGoal()
+                self.locationGoal?.location = self.locationCoOrds!
+                self.locationGoal?.time = timeInterval
+                self.addLocationGoalAnnotation()
+            }
+        }
+    }
+    
+    func addLocationGoalAnnotation() {
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [ .hour, .minute]
+        formatter.zeroFormattingBehavior = [ .pad ]
+        
+        //if there already is a location goal annotation remove it
+        if let locationGoalAnnotation = locationGoalAnnotation{
+            mapView.removeAnnotation(locationGoalAnnotation)
+        }
+        
+        //create custom annotation and add to map view
+        locationGoalAnnotation = MKPointAnnotation()
+        locationGoalAnnotation?.coordinate = (locationGoal?.location)!
+        locationGoalAnnotation?.title = formatter.string(from: (locationGoal?.time)!)
+        mapView.addAnnotation(locationGoalAnnotation!)
     }
     
     //show user location and 1km square region
