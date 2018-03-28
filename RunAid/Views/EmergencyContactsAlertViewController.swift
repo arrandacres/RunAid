@@ -11,6 +11,7 @@ import MapKit
 import MessageUI
 import ButtonProgressBar_iOS
 import UIColor_Hex_Swift
+import WatchConnectivity
 
 class EmergencyContactsAlertViewController: UIViewController {
     
@@ -27,6 +28,7 @@ class EmergencyContactsAlertViewController: UIViewController {
     private var cancelButtonTimer: Timer?
     private var sosButtonTimer: Timer?
     
+    var wcSession: WCSession!
     var alertType: AlertType = AlertType.LocationGoal
     
     var emergencyAlertRequested: ((_ alertRequested: Bool) -> ())?
@@ -35,15 +37,15 @@ class EmergencyContactsAlertViewController: UIViewController {
         super.viewDidLoad()
         setAlertContent()
         configureAnimatedButtons()
+        //wcSession = self.setUpWatchConnection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         alertCountdown = 10     //reset countdown
-        
-        //start timer with time interval of 1 second
-        alertTimer = startTimer()
+        alertTimer = startTimer()       //start timer with time interval of 1 second
+        self.sendAppleWatchMessage(session: wcSession, message: ["SendingAlert":true])
     }
     
     //configure long-press animated buttons
@@ -62,7 +64,7 @@ class EmergencyContactsAlertViewController: UIViewController {
     }
     
     //creates and starts timer
-    func startTimer() -> Timer {
+    private func startTimer() -> Timer {
         return Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             //if coundown hasn't reached 0 then decrement countdown and update label
             if self.alertCountdown > 0 {
@@ -97,8 +99,8 @@ class EmergencyContactsAlertViewController: UIViewController {
         }
         
     }
+    
     @IBAction func cancel_long_press(_ sender: UILongPressGestureRecognizer) {
-        
         //when user begins pressing button - stop the alert timer (so an alert isn't sent whilst user is attempting to cancel alert & create a timer which every 0.1 seconds animates the button - creating the progress effect
         switch sender.state{
         case .began:
@@ -112,7 +114,6 @@ class EmergencyContactsAlertViewController: UIViewController {
             self.cancelAlertButton.setProgress(progress: 0, true)
             cancelButtonTimer?.invalidate()
             self.alertTimer = startTimer()
-            
         default:
             break
         }
@@ -124,6 +125,7 @@ class EmergencyContactsAlertViewController: UIViewController {
         if button.progress >= 0.4 {
             if isCancel {
             sender.invalidate()
+            self.sendAppleWatchMessage(session: wcSession, message: ["SendingAlert":false])
             self.dismiss(animated: true)
             }else{
                 sender.invalidate()
@@ -131,7 +133,6 @@ class EmergencyContactsAlertViewController: UIViewController {
                     self.emergencyAlertRequested?(true)
                 })
             }
-            
         }
             //if the progress is not filled; update the progress on the button
         else {
@@ -140,10 +141,9 @@ class EmergencyContactsAlertViewController: UIViewController {
     }
     
     //set alert content based upon alert type
-    func setAlertContent() {
+    private func setAlertContent() {
         //set countdown label
         self.alertCountdownLabel.text = "Your Emergency Contacts will be contacted in \(self.alertCountdown) seconds"
-        
         //set alert specific text
         switch alertType {
         case .LocationGoal:

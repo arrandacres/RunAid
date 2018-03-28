@@ -23,8 +23,7 @@ extension WKInterfaceController: WCSessionDelegate {
     //apple watch receives message function
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
-        let userOnRun = message["UserOnRun"] as? Bool
-        if let continueRun = userOnRun{
+        if let continueRun = message["UserOnRun"] as? Bool {
             if continueRun {
                 DispatchQueue.main.async {
                     WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [session, session, session], orientation: .horizontal, pageIndex: 1)
@@ -32,6 +31,19 @@ extension WKInterfaceController: WCSessionDelegate {
             }else{
                 DispatchQueue.main.async {
                     WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "StartRunInterfaceController", context: session)])
+                }
+            }
+        }
+        
+        if let sendingAlert = message["SendingAlert"] as? Bool {
+            if sendingAlert {
+                //navigate to 'sending alert' interface
+                DispatchQueue.main.async {
+                    WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "SendingAlertInterface", context: session)])
+                }
+            }else {
+                DispatchQueue.main.async {
+                    WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [session, session, session], orientation: .horizontal, pageIndex: 1)
                 }
             }
         }

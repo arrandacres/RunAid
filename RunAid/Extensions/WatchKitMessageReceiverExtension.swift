@@ -21,6 +21,10 @@ extension UIViewController: WCSessionDelegate {
         return watchConnectionSession
     }
     
+    func sendAppleWatchMessage(session: WCSession, message: [String: Any]) {
+        session.sendMessage(message, replyHandler: nil)
+    }
+    
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         //Connected Successfully
     }

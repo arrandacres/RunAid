@@ -62,6 +62,7 @@ class RunHomeViewController: UIViewController {
         
         if sender.state == .began {
             locationCoOrds = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            print(locationCoOrds)
             self.performSegue(withIdentifier: "showLocationGoal", sender: self)
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import AWSCognitoIdentityProvider
+import AWSDynamoDB
 import WatchConnectivity
 
 //protocol to implement to handler dimissing of modally presented views
@@ -81,6 +82,24 @@ class ProfileViewController: UIViewController, ModalHandler {
         let signOutAlert = UIAlertController(title: "Are you sure you want to log out?", message: "", preferredStyle: .alert)
         signOutAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
         signOutAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action:UIAlertAction!) in
+            
+            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            let runAidUser = RunAidUser()
+            runAidUser?._username = UserDefaults.standard.value(forKey: "Username") as? String
+            runAidUser?._deviceId = UIDevice.current.identifierForVendor?.uuidString
+            runAidUser?._emailAddress = UserDefaults.standard.value(forKey: "EmailAddress") as? String
+            runAidUser?._emergencyContacts = UserDefaults.standard.value(forKey: "EmergencyContacts") as? [[String:String]]
+            runAidUser?._phoneNumber = UserDefaults.standard.value(forKey: "PhoneNumber") as? String
+            
+            DispatchQueue.main.async {
+                dynamoDBObjectMapper.save(runAidUser!, completionHandler: {(error: Error?) -> Void in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        //show alert
+                        return
+                    }
+                })
+            }
             
             self.user?.signOut()
             self.user?.getDetails()

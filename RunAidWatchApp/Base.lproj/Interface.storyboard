@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zat-gC-AYK">
-    <device id="watch42" orientation="portrait">
+    <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -112,6 +112,38 @@
             </objects>
             <point key="canvasLocation" x="492.5641025641026" y="-71.051282051282058"/>
         </scene>
+        <!--SendingAlertInterface-->
+        <scene sceneID="Edu-n2-eA5">
+            <objects>
+                <controller identifier="SendingAlertInterface" id="VYz-ET-L6Y">
+                    <items>
+                        <label alignment="center" text="Sending Emergency Alert" textAlignment="center" numberOfLines="3" id="53b-2Y-yIZ">
+                            <color key="textColor" red="0.8980392157" green="0.20784313730000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" type="system" weight="semibold" pointSize="17"/>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                            </variation>
+                        </label>
+                        <separator alignment="left" id="7On-RP-kV2">
+                            <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="center" text="There is a pending emergency alert. Please check you iPhone." textAlignment="center" numberOfLines="5" id="6yi-s2-b6m">
+                            <fontDescription key="font" type="system" pointSize="18"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" type="system" pointSize="15"/>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="system" pointSize="18"/>
+                            </variation>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="787" y="-72"/>
+        </scene>
         <!--Cancel Run-->
         <scene sceneID="ofH-B3-89k">
             <objects>
@@ -131,12 +163,9 @@
                             <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
                         </label>
                     </items>
-                    <connections>
-                        <outlet property="cancel_run_pressed" destination="OR7-e2-vxV" id="DJU-FK-Ftt"/>
-                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="493" y="279"/>
+            <point key="canvasLocation" x="492" y="293"/>
         </scene>
     </scenes>
 </document>

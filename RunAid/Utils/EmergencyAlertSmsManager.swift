@@ -13,6 +13,7 @@ import MapKit
 class EmergencyAlertSmsManager: NSObject, MFMessageComposeViewControllerDelegate {
     
     var messageComposeVC: MFMessageComposeViewController?
+    var textSuccessfullySent = false
     
     //construct Message Compose View Controller used to send messages
     func getMessageComposeViewController(messageRecipients: [String], lastKnownLocation: CLLocation) -> MFMessageComposeViewController? {
@@ -36,6 +37,10 @@ class EmergencyAlertSmsManager: NSObject, MFMessageComposeViewControllerDelegate
         return MFMessageComposeViewController.canSendText()
     }
     
+    func isTextSuccessfullySent() -> Bool {
+        return textSuccessfullySent
+    }
+    
     //construct the alert SMS body using user last known location
     func constructSMSMessage(lastKnownLocation: CLLocation) -> String {
         
@@ -51,7 +56,10 @@ class EmergencyAlertSmsManager: NSObject, MFMessageComposeViewControllerDelegate
             //if the message is cancelled by the user dismiss the controller
             controller.dismiss(animated: true)
         case MessageComposeResult.sent.rawValue:
+            textSuccessfullySent = true
             controller.dismiss(animated: true)
+        case MessageComposeResult.failed.rawValue:
+            print("Message Failed")
         default:
             controller.dismiss(animated: true)
         }

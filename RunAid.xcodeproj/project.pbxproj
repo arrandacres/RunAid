@@ -31,6 +31,7 @@
 		799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799ABB0E205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift */; };
 		799ABB1220599F7B0082260C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799ABB1120599F7B0082260C /* HealthKit.framework */; };
 		799ABB15205AA5D70082260C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799ABB14205AA5D70082260C /* HealthKit.framework */; };
+		79A6D1E6206A470A00A3A4AB /* PendingAlertInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D1E5206A470A00A3A4AB /* PendingAlertInterfaceController.swift */; };
 		79B132C5203DEA6A00250A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C4203DEA6A00250A67 /* AppDelegate.swift */; };
 		79B132C7203DEA6A00250A67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C6203DEA6A00250A67 /* ProfileViewController.swift */; };
 		79B132C9203DEA6A00250A67 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B132C8203DEA6A00250A67 /* SettingsViewController.swift */; };
@@ -129,6 +130,7 @@
 		799ABB1120599F7B0082260C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		799ABB13205AA5D70082260C /* RunAidWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RunAidWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		799ABB14205AA5D70082260C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		79A6D1E5206A470A00A3A4AB /* PendingAlertInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingAlertInterfaceController.swift; sourceTree = "<group>"; };
 		79B132C1203DEA6A00250A67 /* RunAid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunAid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B132C4203DEA6A00250A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B132C6203DEA6A00250A67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				799ABB08205718C50082260C /* SOSInterfaceController.swift */,
 				799ABB0A205718EE0082260C /* RunMonitoringInterfaceController.swift */,
 				799ABB0C205719060082260C /* CancelRunInterfaceController.swift */,
+				79A6D1E5206A470A00A3A4AB /* PendingAlertInterfaceController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				799ABB0F205820AD0082260C /* InterfaceControllerMessageReceivedExtension.swift in Sources */,
 				799ABB09205718C50082260C /* SOSInterfaceController.swift in Sources */,
 				79D280A02046B80200B44469 /* ExtensionDelegate.swift in Sources */,
+				79A6D1E6206A470A00A3A4AB /* PendingAlertInterfaceController.swift in Sources */,
 				799ABB0D205719060082260C /* CancelRunInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

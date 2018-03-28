@@ -28,9 +28,18 @@ class RunMonitoringInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        wcSession = WCSession.default
-        wcSession.delegate = self
-        wcSession.activate()
+        
+        
+        if let watchConnectionSession = context as? WCSession {
+            wcSession = watchConnectionSession
+            wcSession.delegate = self
+            wcSession.activate()
+            print("Run Monitoring - WCSession established")
+        } else {
+            wcSession = WCSession.default
+            wcSession.delegate = self
+            wcSession.activate()
+        }
         
         //mkae sure user has authorised access to HealthKit - otherwise set heart rate label to '--- bpm'
         guard HKHealthStore.isHealthDataAvailable() == true else {
@@ -73,6 +82,17 @@ class RunMonitoringInterfaceController: WKInterfaceController {
                 DispatchQueue.main.async {
                     self.endWorkout()
                     WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "StartRunInterfaceController", context: self.wcSession)])
+                }
+            }
+        }else if let showPendingAlert = message["SendingAlert"] as? Bool {
+            if showPendingAlert {
+                //navigate to 'sending alert' interface
+                DispatchQueue.main.async {
+                    WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "SendingAlertInterface", context: self.wcSession)])
+                }
+            }else {
+                DispatchQueue.main.async {
+                    WKInterfaceController.reloadRootPageControllers(withNames: ["SOSView", "RunDetailsView", "CancelRunView"], contexts: [session, session, session], orientation: .horizontal, pageIndex: 1)
                 }
             }
         }

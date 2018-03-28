@@ -52,32 +52,6 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
         }
     }
     
-    func createUserDefaults(loggedInUsername: String ) -> AWSTask<AnyObject>{
-        
-        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        var userObject: RunAidUser = RunAidUser();
-        let defaults = UserDefaults.standard
-        userObject._username = loggedInUsername
-        
-        self.performSegue(withIdentifier: "LoadingViewSegue", sender: self)
-        
-        return dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as NSError? {
-                print("The request failed. Error: \(error)")
-            } else if let result = task.result as? RunAidUser {
-                // Do something with task.result.
-                userObject = result
-                print(result)
-                defaults.set(userObject._username, forKey: "Username")
-                defaults.set(userObject._emailAddress, forKey: "EmailAddress")
-                defaults.set(userObject._phoneNumber, forKey: "PhoneNumber")
-                defaults.set(userObject._emergencyContacts, forKey: "EmergencyContacts")
-                self.dismiss(animated: false, completion: nil)
-            }
-            return userObject
-        })
-    }
-    
     @objc private func textDidChange(_ notification: Notification) {
         var formIsValid = true
         
@@ -131,8 +105,6 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
                 let defaults = UserDefaults.standard
                 userObject._username = self.usernameTxtField.text!
                 
-                //self.performSegue(withIdentifier: "LoadingViewSegue", sender: self)
-                
                 dynamoDbObjectMapper.load(RunAidUser.self, hashKey: userObject._username, rangeKey:nil).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>!) -> Any? in
                     if let error = task.error as NSError? {
                         print("The request failed. Error: \(error)")
@@ -154,8 +126,6 @@ class LoginViewController: UIViewController, AWSCognitoIdentityPasswordAuthentic
                     }
                     return nil
                 })
-
-                
             }
         }
     }
