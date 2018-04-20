@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zat-gC-AYK">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zat-gC-AYK">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
         <!--StartRunInterfaceController-->
@@ -48,6 +48,9 @@
                                 <action selector="send_sos_pressed" destination="ht0-K1-8PI" id="XCe-AI-lTy"/>
                             </connections>
                         </button>
+                        <label alignment="center" verticalAlignment="bottom" text="Send S.O.S" textAlignment="center" id="s8a-Yj-qI9">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
+                        </label>
                     </items>
                     <connections>
                         <segue destination="Xb7-8T-m7o" kind="relationship" relationship="nextPage" id="9oQ-3A-jcw"/>

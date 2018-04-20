@@ -62,7 +62,6 @@ class RunHomeViewController: UIViewController {
         
         if sender.state == .began {
             locationCoOrds = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
-            print(locationCoOrds)
             self.performSegue(withIdentifier: "showLocationGoal", sender: self)
         }
     }
@@ -116,10 +115,12 @@ class RunHomeViewController: UIViewController {
     //show user location and 1km square region
     func showUserLocationOnMap() {
         //set map region to be 1km square from the users location
+        if let userlocation = userLocation?.coordinate {
         let userCoOrdRegion = MKCoordinateRegionMakeWithDistance((userLocation?.coordinate)!, 500, 500)
-        mapView.showsScale = true
-        //set map to show user's location region
-        mapView.setRegion(userCoOrdRegion,animated: true)
+            mapView.showsScale = true
+            //set map to show user's location region
+            mapView.setRegion(userCoOrdRegion,animated: true)
+        }
     }
 }
 

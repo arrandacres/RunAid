@@ -48,7 +48,6 @@ class ProfileViewController: UIViewController, ModalHandler {
             emergencyContacts = emergencyContactsUD
         }
         emergencyContactsTable.reloadData()
-        //self.user = AppDelegate.getUserPool().currentUser()!
     }
     
     override func viewDidLoad() {
